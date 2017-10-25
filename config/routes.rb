@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :type_of_events
   resources :inflows
   resources :ticket_boxes
   resources :products
