@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inflows
   resources :ticket_boxes
   resources :products
   resources :type_of_products
