@@ -10,6 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require metronic/font-awesome.scss
+ *= require metronic/simple-line-icons.scss
+ *= require metronic/bootstrap.scss
+ *= require metronic/bootstrap-switch.css
+ *= require metronic/components.css
+ *= require metronic/plugins.css
+ *= require metronic/layout.css
+ *= require metronic/custom.css 
  *= require_tree .
  *= require_self
  */

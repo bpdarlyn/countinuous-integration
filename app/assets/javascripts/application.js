@@ -10,5 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require metronic/jquery.min.js
 //= require rails-ujs
+//= require metronic/bootstrap.js
+//= require metronic/js.cookie.min.js
+//= require metronic/jquery.slimscroll.js
+//= require metronic/jquery.blockui.min.js
+//= require metronic/bootstrap-switch.js
+//= require metronic/moment.min.js
+//= require metronic/daterangepicker.js
+//= require metronic/morris.js
+
+//= require metronic/app.js
+//= require metronic/dashboard.js
+//= require metronic/layout.js
+//= require metronic/quick-sidebar.js
+//= require metronic/quick-nav.js
 //= require_tree .
