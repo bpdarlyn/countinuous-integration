@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025165129) do
+ActiveRecord::Schema.define(version: 20171025171951) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -20,8 +20,30 @@ ActiveRecord::Schema.define(version: 20171025165129) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "inflow_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.integer "ticket_boxes_id"
+    t.decimal "start_number", precision: 10
+    t.decimal "end_number", precision: 10
+    t.decimal "quantity", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_inflow_details_on_product_id"
+  end
+
   create_table "inflows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "inflow_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orden_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date "date_orden"
+    t.string "request_number"
+    t.string "in_charge"
+    t.string "event"
+    t.decimal "price_by_ticket", precision: 10
+    t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171025165129) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "inflow_details", "products"
   add_foreign_key "products", "type_of_products"
   add_foreign_key "ticket_boxes", "products"
 end

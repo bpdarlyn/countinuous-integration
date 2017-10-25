@@ -1,0 +1,2 @@
+class OrdenRequest < ApplicationRecord
+end

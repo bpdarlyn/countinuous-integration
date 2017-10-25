@@ -1,0 +1,42 @@
+<%= form_with(model: inflow_detail, local: true) do |form| %>
+  <% if inflow_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inflow_detail.errors.count, "error") %> prohibited this inflow_detail from being saved:</h2>
+
+      <ul>
+      <% inflow_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id, id: :inflow_detail_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_boxes_id %>
+    <%= form.number_field :ticket_boxes_id, id: :inflow_detail_ticket_boxes_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_number %>
+    <%= form.text_field :start_number, id: :inflow_detail_start_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_number %>
+    <%= form.text_field :end_number, id: :inflow_detail_end_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, id: :inflow_detail_quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

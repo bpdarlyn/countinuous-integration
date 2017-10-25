@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date orden:</strong>
+  <%= @orden_request.date_orden %>
+</p>
+
+<p>
+  <strong>Request number:</strong>
+  <%= @orden_request.request_number %>
+</p>
+
+<p>
+  <strong>In charge:</strong>
+  <%= @orden_request.in_charge %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @orden_request.event %>
+</p>
+
+<p>
+  <strong>Price by ticket:</strong>
+  <%= @orden_request.price_by_ticket %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @orden_request.event_id %>
+</p>
+
+<%= link_to 'Edit', edit_orden_request_path(@orden_request) %> |
+<%= link_to 'Back', orden_requests_path %>

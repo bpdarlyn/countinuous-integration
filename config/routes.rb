@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :inflow_details
+  resources :orden_requests
   resources :events
   resources :type_of_events
   resources :inflows
