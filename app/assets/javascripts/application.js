@@ -21,9 +21,17 @@
 //= require metronic/daterangepicker.js
 //= require metronic/morris.js
 
+//= require metronic/datatable.js
+//= require metronic/datatables.min.js
+//= require metronic/datatables.bootstrap.js
+
+
 //= require metronic/app.js
 //= require metronic/dashboard.js
 //= require metronic/layout.js
 //= require metronic/quick-sidebar.js
 //= require metronic/quick-nav.js
+
+
+
 //= require_tree .

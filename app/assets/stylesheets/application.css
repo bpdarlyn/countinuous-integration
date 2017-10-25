@@ -15,9 +15,14 @@
  *= require metronic/bootstrap.scss
  *= require metronic/bootstrap-switch.css
  *= require metronic/components.css
- *= require metronic/plugins.css
+
+ *= require metronic/datatables.scss
+ *= require metronic/datatables.bootstrap.css
+
+
+ *= require metronic/plugins.scss
  *= require metronic/layout.css
- *= require metronic/custom.css 
+ *= require metronic/custom.css
  *= require_tree .
  *= require_self
  */
