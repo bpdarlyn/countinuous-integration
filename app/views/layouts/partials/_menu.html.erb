@@ -1,46 +1,47 @@
 <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown dropdown-fw dropdown-fw-disabled  active open selected">
-                                    <a href="javascript:;" class="text-uppercase">
-                                        <i class="icon-home"></i> Dashboard </a>
-                                    <ul class="dropdown-menu dropdown-menu-fw">
-                                        <li class="active">
-                                            <%= link_to root_path do %>
-                                                <i class="icon-bar-chart"></i> General 
-                                            <% end %>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="dashboard_2.html">
-                                                <i class="icon-bulb"></i> Dashboard 2 </a>
-                                        </li> -->
-                                        <!-- <li>
-                                            <a href="dashboard_3.html">
-                                                <i class="icon-graph"></i> Dashboard 3 </a>
-                                        </li> -->
-                                    </ul>
-                                </li>
-                                <li class="dropdown dropdown-fw dropdown-fw-disabled  ">
-                                    <a href="javascript:;" class="text-uppercase">
-                                        <i class="icon-puzzle"></i> Productos </a>
-                                    <ul class="dropdown-menu dropdown-menu-fw">
-                                        <li class="dropdown more-dropdown-sub">
-                                            <li class="active">
-                                                <%= link_to products_path do %>
-                                                    <i class="icon-bar-chart"></i> Lista de Productos
-                                                <% end %>
-                                            </li>
-                                            <li class="">
-                                                <%= link_to type_of_products_path do %>
-                                                    <i class="icon-bar-chart"></i> Tipos Productos
-                                                <% end %>
-                                            </li>
-                                            <li class="">
-                                                <%= link_to inflows_path do %>
-                                                    <i class="icon-bar-chart"></i> Ingreso de Tickets
-                                                <% end %>
-                                            </li>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+    <ul class="nav navbar-nav">
+        <li class="dropdown dropdown-fw dropdown-fw-disabled <%= parent_menu_active(params[:controller], 'dashboard') %> ">
+            <a href="javascript:;" class="text-uppercase">
+                <i class="icon-home"></i> Dashboard </a>
+            <ul class="dropdown-menu dropdown-menu-fw">
+                <li class="<%= active_menu(params[:controller], 'home') %>">
+                    <%= link_to root_path do %>
+                        <i class="icon-bar-chart"></i> General 
+                    <% end %>
+                </li>
+                <!-- <li>
+                    <a href="dashboard_2.html">
+                        <i class="icon-bulb"></i> Dashboard 2 </a>
+                </li> -->
+                <!-- <li>
+                    <a href="dashboard_3.html">
+                        <i class="icon-graph"></i> Dashboard 3 </a>
+                </li> -->
+            </ul>
+        </li>
+        <li class="dropdown dropdown-fw dropdown-fw-disabled <%= parent_menu_active(params[:controller], 'product') %> ">
+            <a href="javascript:;" class="text-uppercase">
+                <i class="icon-puzzle"></i> Productos </a>
+            <ul class="dropdown-menu dropdown-menu-fw">
+                <li class="dropdown more-dropdown-sub">
+
+                    <li class="<%= active_menu(params[:controller], 'products') %>">
+                        <%= link_to products_path do %>
+                            <i class="icon-bar-chart"></i> Lista de Productos
+                        <% end %>
+                    </li>
+                    <li class="<%= active_menu(params[:controller], 'type_of_products') %>">
+                        <%= link_to type_of_products_path do %>
+                            <i class="icon-bar-chart"></i> Tipos Productos
+                        <% end %>
+                    </li>
+                    <li class="<%= active_menu(params[:controller], 'inflows') %>">
+                        <%= link_to inflows_path do %>
+                            <i class="icon-bar-chart"></i> Ingreso de Tickets
+                        <% end %>
+                    </li>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
