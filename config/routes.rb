@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :outflows
   resources :inflow_details
   resources :orden_requests
   resources :events
