@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :orden_request_details
+  resources :historical_boxes
+  resources :outflow_details
   resources :outflows
   resources :inflow_details
   resources :orden_requests

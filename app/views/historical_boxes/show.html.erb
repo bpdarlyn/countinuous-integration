@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticket box:</strong>
+  <%= @historical_box.ticket_box %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @historical_box.status %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @historical_box.available %>
+</p>
+
+<p>
+  <strong>Not available:</strong>
+  <%= @historical_box.not_available %>
+</p>
+
+<p>
+  <strong>Inflow detail:</strong>
+  <%= @historical_box.inflow_detail_id %>
+</p>
+
+<p>
+  <strong>Outflow integer:</strong>
+  <%= @historical_box.outflow_integer_id %>
+</p>
+
+<%= link_to 'Edit', edit_historical_box_path(@historical_box) %> |
+<%= link_to 'Back', historical_boxes_path %>

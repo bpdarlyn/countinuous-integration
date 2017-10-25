@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Outflow:</strong>
+  <%= @outflow_detail.outflow %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @outflow_detail.product %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @outflow_detail.quantity %>
+</p>
+
+<p>
+  <strong>Start number:</strong>
+  <%= @outflow_detail.start_number %>
+</p>
+
+<p>
+  <strong>End number:</strong>
+  <%= @outflow_detail.end_number %>
+</p>
+
+<%= link_to 'Edit', edit_outflow_detail_path(@outflow_detail) %> |
+<%= link_to 'Back', outflow_details_path %>
