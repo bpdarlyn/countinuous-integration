@@ -1,0 +1,24 @@
+<!-- BEGIN BREADCRUMBS -->
+<div class="breadcrumbs">
+    <h1><%= yield :page_title %></h1>
+    <ol class="breadcrumb">
+        <li>
+            <%= link_to "Home", root_path %>
+        </li>
+        <li>
+            <%= yield :index_page_controller %>
+        </li>
+        <li class="active">
+            <%= yield :page_title %>
+        </li>
+    </ol>
+</div>
+<!-- END BREADCRUMBS -->
+<!-- BEGIN PAGE BASE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <%= yield :form_content %>
+    </div>
+</div>
+
+
