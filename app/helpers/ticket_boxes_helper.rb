@@ -1,0 +1,2 @@
+module TicketBoxesHelper
+end

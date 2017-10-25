@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nro:</strong>
+  <%= @ticket_box.nro %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @ticket_box.quantity %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @ticket_box.product %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_box_path(@ticket_box) %> |
+<%= link_to 'Back', ticket_boxes_path %>

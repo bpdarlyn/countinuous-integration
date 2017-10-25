@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :ticket_boxes
+  resources :products
+  resources :type_of_products
   root "home#index"
   get 'home/index'
 

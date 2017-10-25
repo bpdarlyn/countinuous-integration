@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket Boxes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro</th>
+      <th>Quantity</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_boxes.each do |ticket_box| %>
+      <tr>
+        <td><%= ticket_box.nro %></td>
+        <td><%= ticket_box.quantity %></td>
+        <td><%= ticket_box.product %></td>
+        <td><%= link_to 'Show', ticket_box %></td>
+        <td><%= link_to 'Edit', edit_ticket_box_path(ticket_box) %></td>
+        <td><%= link_to 'Destroy', ticket_box, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Box', new_ticket_box_path %>

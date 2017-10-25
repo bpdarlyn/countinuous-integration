@@ -1,0 +1,2 @@
+class TypeOfProduct < ApplicationRecord
+end
