@@ -19,6 +19,43 @@
 				    	<%= @inflow.inflow_date %>
 				    </div>
 				</div>
+
+				<div class="form-group">
+				    <div class="col-md-6">
+				    </div>
+				</div>
+				<% if @inflow.inflow_details.count > 0 %>
+					<div class="form-group">
+						<div class="col-md-12">
+					    	<div class="row">
+					    		<h4>Detalle:</h4>
+					    		 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="table">
+						            <thead>
+						                <tr>
+							               	<th>Producto</th>
+							                <th>Nro Caja</th>
+							                <th>Nro de Serie Comienzo (Caja)</th>
+							                <th>Nro de Serie Fin (Caja)</th>
+							                <th>Cantidad</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <% @inflow.inflow_details.each do |inflow_detail| %>
+						                	<tr>
+						                		<% product = inflow_detail.product %>
+						                		<td><%= product.type_of_product.try(:name) %> - <%= product.name %></td>
+						                		<td><%= inflow_detail.ticket_boxes_id %></td>
+						                		<td><%= inflow_detail.start_number %></td>
+						                		<td><%= inflow_detail.end_number %></td>
+						                		<td><%= inflow_detail.quantity %></td>
+						                	</tr>
+						                <% end %>
+						            </tbody>
+						        </table>
+					    	</div>
+					    </div>
+					</div>
+				<% end %>	
 				<br>
 				<br>
 				<div class="form-group">
