@@ -16,10 +16,6 @@ module ApplicationHelper
 	end
 
 	def active_sub_menu(controller,action, controller_inside, action_inside)
-		p controller
-		p controller_inside
-		p action
-		p action_inside
 		if controller == controller_inside && action == action_inside 
 			"active"
 		else

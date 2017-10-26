@@ -26,6 +26,8 @@
                           %th Cantidad
                           %th Disponibles
                           %th Utilizados
+                          %th Serie Comienzo
+                          %th Serie Fin
                       %tbody
                         - product.ticket_boxes.each do |ticket_box|
                           %tr
@@ -33,6 +35,8 @@
                             %td= ticket_box.quantity
                             %td= ticket_box.historical_box_active.try(:available)
                             %td= ticket_box.historical_box_active.try(:not_available)
+                            %td= ticket_box.start_number
+                            %td= ticket_box.end_number
       -#
 
     /

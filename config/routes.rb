@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'warehouse/index'
+  get 'warehouse/index_all_tickets'
 
   resources :orden_request_details
   resources :historical_boxes

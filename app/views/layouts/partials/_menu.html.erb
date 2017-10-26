@@ -40,8 +40,8 @@
                             <li class="<%= active_sub_menu(params[:controller],params[:action], 'warehouse', 'index') %>">
                                 <%= link_to "Vista de Productos por Cajas", warehouse_index_path %>
                             </li>
-                            <li>
-                                <%= link_to "Vista de Productos en General", warehouse_index_path %>
+                            <li class="<%= active_sub_menu(params[:controller],params[:action], 'warehouse', 'index_all_tickets') %>">
+                                <%= link_to "Vista de Productos en General", warehouse_index_all_tickets_path %>
                             </li>
                         </ul>
                     </li>
