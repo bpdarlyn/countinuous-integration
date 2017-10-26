@@ -34,12 +34,14 @@ ActiveRecord::Schema.define(version: 20171025185043) do
 
   create_table "inflow_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "product_id"
+    t.bigint "inflow_id"
     t.integer "ticket_boxes_id"
     t.decimal "start_number", precision: 10
     t.decimal "end_number", precision: 10
     t.decimal "quantity", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["inflow_id"], name: "index_inflow_details_on_inflow_id"
     t.index ["product_id"], name: "index_inflow_details_on_product_id"
   end
 
@@ -119,6 +121,7 @@ ActiveRecord::Schema.define(version: 20171025185043) do
   end
 
   add_foreign_key "historical_boxes", "ticket_boxes"
+  add_foreign_key "inflow_details", "inflows"
   add_foreign_key "inflow_details", "products"
   add_foreign_key "orden_request_details", "orden_requests"
   add_foreign_key "orden_request_details", "products"

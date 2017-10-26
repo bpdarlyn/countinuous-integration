@@ -32,6 +32,6 @@
 //= require metronic/quick-sidebar.js
 //= require metronic/quick-nav.js
 
-
+//= require cocoon
 
 //= require_tree .
