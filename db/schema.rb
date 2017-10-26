@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025185043) do
+ActiveRecord::Schema.define(version: 20171026205325) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171025185043) do
     t.decimal "available", precision: 10
     t.decimal "not_available", precision: 10
     t.integer "inflow_detail_id"
-    t.integer "outflow_integer_id"
+    t.integer "outflow_detail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ticket_box_id"], name: "index_historical_boxes_on_ticket_box_id"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 20171025185043) do
   create_table "outflows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "outflow_date"
     t.integer "orden_request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personal_in_charges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "last_name"
+    t.string "ocupation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

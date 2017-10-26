@@ -1,0 +1,25 @@
+%h1 Listing personal_in_charges
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Last name
+      %th Ocupation
+      %th
+      %th
+      %th
+
+  %tbody
+    - @personal_in_charges.each do |personal_in_charge|
+      %tr
+        %td= personal_in_charge.name
+        %td= personal_in_charge.last_name
+        %td= personal_in_charge.ocupation
+        %td= link_to 'Show', personal_in_charge
+        %td= link_to 'Edit', edit_personal_in_charge_path(personal_in_charge)
+        %td= link_to 'Destroy', personal_in_charge, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Personal in charge', new_personal_in_charge_path

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :personal_in_charges
   get 'warehouse/index'
   get 'warehouse/index_all_tickets'
 

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @personal_in_charge.name
+%p
+  %b Last name:
+  = @personal_in_charge.last_name
+%p
+  %b Ocupation:
+  = @personal_in_charge.ocupation
+
+= link_to 'Edit', edit_personal_in_charge_path(@personal_in_charge)
+\|
+= link_to 'Back', personal_in_charges_path

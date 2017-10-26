@@ -1,0 +1,19 @@
+= form_for @personal_in_charge do |f|
+  - if @personal_in_charge.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@personal_in_charge.errors.count, "error")} prohibited this personal_in_charge from being saved:"
+      %ul
+        - @personal_in_charge.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :ocupation
+    = f.text_field :ocupation
+  .actions
+    = f.submit 'Save'

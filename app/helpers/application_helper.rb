@@ -4,6 +4,12 @@ module ApplicationHelper
 			return "active open selected"
 		elsif (controller == "type_of_products" || controller == "products" || controller == "inflows" || controller == "warehouse" ) && menu == "product"
 			return "active open selected"
+		elsif (controller == "orden_requests") && menu == "request"
+			return "active open selected"
+		elsif (controller == "events" || controller == "type_of_events") && menu == "event"
+			return "active open selected"		
+		elsif (controller == "personal_in_charges") && menu == "personal"
+			return "active open selected"
 		end
 	end
 

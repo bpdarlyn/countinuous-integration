@@ -6,7 +6,7 @@ class CreateHistoricalBoxes < ActiveRecord::Migration[5.1]
       t.decimal :available
       t.decimal :not_available
       t.integer :inflow_detail_id
-      t.integer :outflow_integer_id
+      t.integer :outflow_detail_id
 
       t.timestamps
     end
