@@ -1,6 +1,25 @@
-<h1>Editing Inflow</h1>
+<%= content_for :page_title do %>
+  Edición de Ingreso de Productos
+<% end %>
 
-<%= render 'form', inflow: @inflow %>
+<%= content_for :index_page_controller do %>
+	<%= link_to "Ingresos de Productos", inflows_path %>
+<% end %>
 
-<%= link_to 'Show', @inflow %> |
-<%= link_to 'Back', inflows_path %>
+<%= content_for :form_content do %>
+	<%= form_with(model: @inflow, local: true, class: "form-horizontal") do |form| %>
+		<div class="form-body">
+			<%= render 'form', form: form, inflow: @inflow %>
+			<div class="form-actions">
+        		<div class="row">
+            		<div class="col-md-offset-3 col-md-9">
+            			<%= link_to 'Mostrar', @inflow, class: "btn blue" %> 
+            			<%= yield :action_buttons %>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	<% end %>
+<% end %>
+
+<%= render template: "layouts/abstracts/edit" %>

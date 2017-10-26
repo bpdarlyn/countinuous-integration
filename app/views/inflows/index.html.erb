@@ -1,27 +1,50 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :page_title do %>
+  Ingresos de Productos
+<% end %>
 
-<h1>Inflows</h1>
+<%= content_for :new_button do %>
+  <%= link_to new_inflow_path, class: "btn sbold green" do %>
+    Nuevo Ingreso de Productos
+    <i class="fa fa-plus"></i>
+  <% end %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Inflow date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= content_for :thead do %>
+  <th>Fecha de Ingreso</th>
+  <th>Acciones</th>
+<% end %>
 
-  <tbody>
-    <% @inflows.each do |inflow| %>
+<%= content_for :tbody do %>
+  <% @inflows.each do |inflow| %>
       <tr>
         <td><%= inflow.inflow_date %></td>
-        <td><%= link_to 'Show', inflow %></td>
-        <td><%= link_to 'Edit', edit_inflow_path(inflow) %></td>
-        <td><%= link_to 'Destroy', inflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="btn-group">
+              <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Acciones
+                  <i class="fa fa-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu pull-left" role="menu">
+                  <li>
+                    <%= link_to inflow do %>
+                      <i class="icon-docs"></i> Mostrar Producto 
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to edit_inflow_path(inflow) do %>
+                      <i class="fa fa-pencil"></i> Editar Producto 
+                    <% end %>
+                  </li>
+                  <li class="divider"> </li>
+                  <li>
+                    <%= link_to inflow, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                      <i class="fa fa-trash-o"></i> Eliminar Producto
+                    <% end %>
+                  </li>
+              </ul>
+          </div>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+<% end %>
 
-<br>
-
-<%= link_to 'New Inflow', new_inflow_path %>
+<%= render template: "layouts/abstracts/index" %>

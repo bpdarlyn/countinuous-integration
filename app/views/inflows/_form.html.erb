@@ -1,22 +1,25 @@
-<%= form_with(model: inflow, local: true) do |form| %>
-  <% if inflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(inflow.errors.count, "error") %> prohibited this inflow from being saved:</h2>
 
-      <ul>
-      <% inflow.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if inflow.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(inflow.errors.count, "error") %> prohibited this inflow from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :inflow_date %>
-    <%= form.date_select :inflow_date, id: :inflow_inflow_date %>
+    <ul>
+    <% inflow.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
   </div>
+<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="form-group">
+  <label class="col-md-3 control-label">Fecha de Ingreso</label>
+  <div class="col-md-9">
+      <%= form.date_select :inflow_date, id: :inflow_inflow_date, class: "form-control", placeholder: "Ingresa un texto" %>
+      <span class="help-block"> Selecciona la fecha del Ingreso de Productos </span>
   </div>
+</div>
+
+<%= content_for :action_buttons do %>
+  <%= form.submit 'Guardar', class: "btn green" %>
+  <%= link_to "Cancelar", inflows_path, class: "btn default" %>
 <% end %>

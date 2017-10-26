@@ -1,9 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :page_title do %>
+  Detalle de Ingreso de Productos
+<% end %>
 
-<p>
-  <strong>Inflow date:</strong>
-  <%= @inflow.inflow_date %>
-</p>
+<%= content_for :index_page_controller do %>
+	<%= link_to "Ingresos de Productos", inflows_path %>
+<% end %>
 
-<%= link_to 'Edit', edit_inflow_path(@inflow) %> |
-<%= link_to 'Back', inflows_path %>
+<%= content_for :form_content do %>
+	<div class="form-body">
+		<div class="form-actions">
+    		<div class="row">
+
+    			<div class="form-group">
+				    <label class="col-md-2 control-label">
+				    	Fecha de Ingreso de Productos:
+				    </label>
+				    <div class="col-md-4">
+				    	<%= @inflow.inflow_date %>
+				    </div>
+				</div>
+				<br>
+				<br>
+				<div class="form-group">
+					<div class="col-md-9">
+	        			<%= link_to 'Editar', edit_inflow_path(@inflow), class: "btn btn-warning" %> 
+						<%= link_to 'Atrás', inflows_path, class: "btn default" %>
+	            	</div>
+				</div>
+	        </div>
+	    </div>
+	</div>
+<% end %>
+
+<%= render template: "layouts/abstracts/show" %>
