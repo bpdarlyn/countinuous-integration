@@ -25,7 +25,6 @@ class InflowsController < ApplicationController
   # POST /inflows.json
   def create
     @inflow = Inflow.new(inflow_params)
-
     respond_to do |format|
       if @inflow.save
         format.html { redirect_to @inflow, notice: 'Inflow was successfully created.' }
