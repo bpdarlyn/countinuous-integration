@@ -1,0 +1,49 @@
+.breadcrumbs
+  %h1 Almacén
+  %ol.breadcrumb
+    %li
+      = link_to "Home", root_path  
+    %li.active
+      Almacén
+.row
+  .col-md-12
+    .row
+      .portlet-body
+        #accordion2.panel-group.accordion.scrollable
+          - @product_tickets.each do |product|
+            - if product.ticket_boxes.count > 0
+              .panel.panel-default
+                .panel-heading
+                  %h4.panel-title
+                    %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse_#{product.id}"}
+                      = "#{product.type_of_product.name} - #{product.name}"
+                .panel-collapse.collapse{ id: "collapse_#{product.id}" }
+                  .panel-body
+                    %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+                      %thead
+                        %tr
+                          %th Caja
+                          %th Cantidad
+                          %th Disponibles
+                          %th Utilizados
+                      %tbody
+                        - product.ticket_boxes.each do |ticket_box|
+                          %tr
+                            %td= ticket_box.nro
+                            %td= ticket_box.quantity
+                            %td= ticket_box.historical_box_active.try(:available)
+                            %td= ticket_box.historical_box_active.try(:not_available)
+      -#
+
+    /
+      <table class="table table-striped table-bordered table-hover table-checkable order-column" id="table">
+      <thead>
+      <tr>
+      <haml_loud> yield :thead </haml_loud>
+      </thead>
+      <tbody>
+      <haml_loud> yield :tbody </haml_loud>
+
+
+      </tbody>
+      </table>

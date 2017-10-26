@@ -9,14 +9,6 @@
                         <i class="icon-bar-chart"></i> General 
                     <% end %>
                 </li>
-                <!-- <li>
-                    <a href="dashboard_2.html">
-                        <i class="icon-bulb"></i> Dashboard 2 </a>
-                </li> -->
-                <!-- <li>
-                    <a href="dashboard_3.html">
-                        <i class="icon-graph"></i> Dashboard 3 </a>
-                </li> -->
             </ul>
         </li>
         <li class="dropdown dropdown-fw dropdown-fw-disabled <%= parent_menu_active(params[:controller], 'product') %> ">
@@ -40,10 +32,18 @@
                             <i class="icon-bar-chart"></i> Ingreso de Tickets
                         <% end %>
                     </li>
-                    <li class="<%= active_menu(params[:controller], 'warehouse') %>">
-                        <%= link_to warehouse_index_path do %>
-                            <i class="icon-bar-chart"></i> Almacen
-                        <% end %>
+                    <li class="dropdown more-dropdown-sub <%= active_menu(params[:controller], 'warehouse') %>">
+                        <a href="javascript:;">
+                            <i class="icon-bar-chart"></i>  Almacen  
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="<%= active_sub_menu(params[:controller],params[:action], 'warehouse', 'index') %>">
+                                <%= link_to "Vista de Productos por Cajas", warehouse_index_path %>
+                            </li>
+                            <li>
+                                <%= link_to "Vista de Productos en General", warehouse_index_path %>
+                            </li>
+                        </ul>
                     </li>
                 </li>
             </ul>

@@ -2,6 +2,11 @@ class TicketBox < ApplicationRecord
   belongs_to :product
   has_many :historical_boxes
 
+  def historical_box_active
+    historical_boxes.where(status: true).try(:first)
+  end
+
+
   def self.create_and_associatte_inflow_detail(inflow_detail)
   	ticket_box = TicketBox.new
 	ticket_box.nro = inflow_detail.ticket_boxes_id
