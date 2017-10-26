@@ -2,7 +2,7 @@ module ApplicationHelper
 	def parent_menu_active(controller, menu)
 		if controller == "home" && menu == "dashboard"
 			return "active open selected"
-		elsif (controller == "type_of_products" || controller == "products" || controller == "inflows" ) && menu == "product"
+		elsif (controller == "type_of_products" || controller == "products" || controller == "inflows" || controller == "warehouse" ) && menu == "product"
 			return "active open selected"
 		end
 	end

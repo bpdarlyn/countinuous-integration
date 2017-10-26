@@ -40,6 +40,11 @@
                             <i class="icon-bar-chart"></i> Ingreso de Tickets
                         <% end %>
                     </li>
+                    <li class="<%= active_menu(params[:controller], 'warehouse') %>">
+                        <%= link_to warehouse_index_path do %>
+                            <i class="icon-bar-chart"></i> Almacen
+                        <% end %>
+                    </li>
                 </li>
             </ul>
         </li>

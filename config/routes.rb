@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'warehouse/index'
+
   resources :orden_request_details
   resources :historical_boxes
   resources :outflow_details
