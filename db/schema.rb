@@ -102,6 +102,9 @@ ActiveRecord::Schema.define(version: 20171025185043) do
   create_table "ticket_boxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "nro"
     t.integer "quantity"
+    t.integer "inflow_detail_id"
+    t.decimal "start_number", precision: 10
+    t.decimal "end_number", precision: 10
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

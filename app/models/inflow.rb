@@ -4,6 +4,8 @@ class Inflow < ApplicationRecord
 
 	after_create :create_ticket_boxes_and_historical
 
+	after_update :update_ticket_boxes_and_historical
+
 	def create_ticket_boxes_and_historical
 		self.inflow_details.each do |inflow_detail|
 			unless inflow_detail.ticket_boxes_id.nil?
@@ -11,4 +13,12 @@ class Inflow < ApplicationRecord
 			end
 		end
 	end	
+
+	def update_ticket_boxes_and_historical
+		self.inflow_details.each do |inflow_detail|
+			unless inflow_detail.ticket_boxes_id.nil?
+				TicketBox.update_and_associatte_inflow_detail(inflow_detail)
+			end
+		end
+	end
 end

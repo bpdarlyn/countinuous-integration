@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if TypeOfProduct.count == 0
+	TypeOfProduct.create(name: "Ticket")
+	TypeOfProduct.create(name: "Manilla")
+	p "Tipos de Productos creados satisfactoriamente"
+end
+
+if Product.count == 0
+	Product.create(name: "Verde", type_of_product: TypeOfProduct.first)
+	Product.create(name: "Rojo", type_of_product: TypeOfProduct.first)
+	Product.create(name: "Amarillo", type_of_product: TypeOfProduct.first)
+	p "Productos creados satisfactoriamente"
+end
+
