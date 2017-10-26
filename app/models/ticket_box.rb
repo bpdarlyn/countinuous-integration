@@ -1,6 +1,7 @@
 class TicketBox < ApplicationRecord
   belongs_to :product
-  has_many :historical_boxes
+  belongs_to :inflow_detail
+  has_many :historical_boxes, dependent: :destroy
 
   def historical_box_active
     historical_boxes.where(status: true).try(:first)
