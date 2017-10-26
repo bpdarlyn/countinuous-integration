@@ -1,18 +1,18 @@
 <tr class="nested-fields">
 	<td>
-		<%= f.select :product_id, Product.all.map{ |p| [p.name, p.id]}, { prompt: "Seleccione un Producto"}, { class: "form-control"} %>
+		<%= f.select :product_id, Product.all.map{ |p| [p.name, p.id]}, { prompt: "Seleccione un Producto"}, { class: "form-control", required: true} %>
 	</td>
 	<td>
 		<%= f.text_field :ticket_boxes_id, class: 'form-control' %>
 	</td>
 	<td>
-		<%= f.text_field :start_number, class: 'form-control' %>
+		<%= f.number_field :start_number, class: 'form-control', min: 0, step: 1 %>
 	</td>
 	<td>
-		<%= f.text_field :end_number, class: 'form-control' %>
+		<%= f.number_field :end_number, class: 'form-control', min: 0, step: 1 %>
 	</td>
 	<td>
-		<%= f.text_field :quantity, class: 'form-control' %>
+		<%= f.number_field :quantity, class: 'form-control', readonly: true, min: 0, step: 1 %>
 	</td>
 	<td>
 		<%= link_to_remove_association "X", f, class: "btn btn-danger btn-xs" %>

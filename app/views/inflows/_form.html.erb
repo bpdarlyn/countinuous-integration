@@ -62,12 +62,3 @@
   <%= form.submit 'Guardar', class: "btn green" %>
   <%= link_to "Cancelar", inflows_path, class: "btn default" %>
 <% end %>
-
-
-<%= content_for :javascript do %>
-  <script type="text/javascript">
-    $("#add-item").click(function(){
-      $('#cocconAddItem').trigger('click');
-    });
-  </script>
-<% end %>
