@@ -19,9 +19,9 @@
     %label.col-md-2.control-label Fecha del Evento
     .col-md-4
       - if form.object.persisted?
-        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false", value: orden_request.event_date.strftime("%d/%m/%Y")
+        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false", value: orden_request.event_date.strftime("%d/%m/%Y"), required: true
       - else
-        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false"
+        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false", required: true
       %span.help-block Seleccione Fecha del Evento
     %label.col-md-2.control-label Nombre del Evento
     .col-md-4
@@ -31,7 +31,7 @@
   .form-group
     %label.col-md-2.control-label Personal Encargado
     .col-md-4
-      = form.select :personal_in_charge_id, PersonalInCharge.all.map{ |p| ["#{p.full_name}", p.id] },{ prompt: "Seleccione un elemento"},{ class: "form-control",  id: :orden_request_personal_in_charge_id }
+      = form.select :personal_in_charge_id, PersonalInCharge.all.map{ |p| ["#{p.full_name}", p.id] },{ prompt: "Seleccione un elemento"},{ class: "form-control",  id: :orden_request_personal_in_charge_id, required: true}
       %span.help-block Seleccione un Personal Encargado
 .row
   .form-group

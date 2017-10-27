@@ -24,8 +24,12 @@ class OrdenRequestsController < ApplicationController
   # POST /orden_requests
   # POST /orden_requests.json
   def create
+
     @orden_request = OrdenRequest.new(orden_request_params)
-    @orden_request.date_orden = Time.now 
+    @orden_request.date_orden = Time.now
+    event = Event.find_or_create_by!(name: params[:orden_request][:event], event_date: params[:orden_request][:event_date], type_of_event: TypeOfEvent.find_or_create_by(name: "Default"))
+    @orden_request.event_id = event.id
+
     respond_to do |format|
       if @orden_request.save
         format.html { redirect_to @orden_request, notice: 'Orden request was successfully created.' }
@@ -41,6 +45,8 @@ class OrdenRequestsController < ApplicationController
   # PATCH/PUT /orden_requests/1.json
   def update
     respond_to do |format|
+      event = Event.find_or_create_by!(name: params[:orden_request][:event], event_date: params[:orden_request][:event_date], type_of_event: TypeOfEvent.find_or_create_by(name: "Default"))
+      @orden_request.event_id = event.id
       if @orden_request.update(orden_request_params)
         format.html { redirect_to @orden_request, notice: 'Orden request was successfully updated.' }
         format.json { render :show, status: :ok, location: @orden_request }

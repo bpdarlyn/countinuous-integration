@@ -23,3 +23,8 @@ if TypeOfEvent.count == 0
 	TypeOfEvent.create(name: "Default")
 	p "Tipo de Evento creado satisfactoriamente"
 end
+
+if PersonalInCharge.count == 0
+	PersonalInCharge.create(name: "Erick", last_name: "P.", ocupation: "Impresor")
+	p "Personal creado satisfactoriamente"
+end

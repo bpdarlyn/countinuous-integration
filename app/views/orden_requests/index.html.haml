@@ -18,9 +18,9 @@
     %tr
       %td= orden_request.date_orden
       %td= orden_request.request_number
-      %td= orden_request.personal_in_charge_id
+      %td= orden_request.personal_in_charge.try(:name)
       %td= orden_request.event_date
-      %td= orden_request.event_id # TODO: Here we should fix it
+      %td= orden_request.event # TODO: Here we should fix it
       %td= orden_request.ticket_quantity
       %td= orden_request.price_by_ticket
       %td
