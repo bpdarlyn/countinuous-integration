@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "cocoon"
 gem "haml-rails", "~> 1.0"
 gem "rubocop"
+gem 'protokoll' # this gem if about generate sequence number

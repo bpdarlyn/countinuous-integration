@@ -10,7 +10,10 @@
   .form-group
     %label.col-md-2.control-label Código de Pedido
     .col-md-4
-      = form.text_field :request_number, id: :orden_request_request_number, class: "form-control", placeholder: "Texto Automatico"
+      - if form.object.persisted?
+        %input.form-control{ readonly: true, :value => orden_request.request_number}
+      - else
+        %input.form-control{ readonly: true }
 .row
   .form-group
     %label.col-md-2.control-label Fecha del Evento
