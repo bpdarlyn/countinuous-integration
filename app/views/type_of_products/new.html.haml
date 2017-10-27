@@ -1,0 +1,13 @@
+= content_for :page_title do
+  Nuevo Tipo de Producto
+= content_for :index_page_controller do
+  = link_to "Tipos de Productos", type_of_products_path
+= content_for :form_content do
+  = form_with(model: @type_of_product, local: true, class: "form-horizontal") do |form|
+    .form-body
+      = render 'form', form: form, type_of_product: @type_of_product
+      .form-actions
+        .row
+          .col-md-offset-3.col-md-9
+            = yield :action_buttons
+= render template: "layouts/abstracts/new"

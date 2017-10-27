@@ -1,0 +1,14 @@
+= content_for :page_title do
+  Edición de Ingreso de Productos
+= content_for :index_page_controller do
+  = link_to "Ingresos de Productos", inflows_path
+= content_for :form_content do
+  = form_with(model: @inflow, local: true, class: "form-horizontal") do |form|
+    .form-body
+      = render 'form', form: form, inflow: @inflow
+      .form-actions
+        .row
+          .col-md-offset-3.col-md-9
+            = link_to 'Mostrar', @inflow, class: "btn blue"
+            = yield :action_buttons
+= render template: "layouts/abstracts/edit"

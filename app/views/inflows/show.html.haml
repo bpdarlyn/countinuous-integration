@@ -1,0 +1,46 @@
+= content_for :page_title do
+  Detalle de Ingreso de Productos
+= content_for :index_page_controller do
+  = link_to "Ingresos de Productos", inflows_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Fecha de Ingreso de Productos:
+          .col-md-4
+            = @inflow.inflow_date
+        .form-group
+          .col-md-6
+        - if @inflow.inflow_details.count > 0
+          .form-group
+            .col-md-12
+              .row
+                %h4 Detalle:
+                %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+                  %thead
+                    %tr
+                      %th Producto
+                      %th Nro Caja
+                      %th Nro de Serie Comienzo (Caja)
+                      %th Nro de Serie Fin (Caja)
+                      %th Cantidad
+                  %tbody
+                    - @inflow.inflow_details.each do |inflow_detail|
+                      %tr
+                        - product = inflow_detail.product
+                        %td
+                          = product.type_of_product.try(:name)
+                          \- #{product.name}
+                        %td= inflow_detail.ticket_boxes_id
+                        %td= inflow_detail.start_number
+                        %td= inflow_detail.end_number
+                        %td= inflow_detail.quantity
+        %br/
+        %br/
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_inflow_path(@inflow), class: "btn btn-warning"
+            = link_to 'Atrás', inflows_path, class: "btn default"
+= render template: "layouts/abstracts/show"

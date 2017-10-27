@@ -1,0 +1,25 @@
+= content_for :page_title do
+  Detalle Producto
+= content_for :index_page_controller do
+  = link_to "Productos", products_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Tipo de Producto:
+          .col-md-4
+            = @product.type_of_product.try(:name)
+        .form-group
+          %label.col-md-2.control-label
+            Nombre de Producto:
+          .col-md-4
+            = @product.name
+        %br/
+        %br/
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_product_path(@product), class: "btn btn-warning"
+            = link_to 'Atrás', products_path, class: "btn default"
+= render template: "layouts/abstracts/show"

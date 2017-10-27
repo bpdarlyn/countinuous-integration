@@ -1,0 +1,29 @@
+= form_with(model: orden_request, local: true) do |form|
+  - if orden_request.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(orden_request.errors.count, "error")
+        prohibited this orden_request from being saved:
+      %ul
+        - orden_request.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :date_orden
+    = form.date_select :date_orden, id: :orden_request_date_orden
+  .field
+    = form.label :request_number
+    = form.text_field :request_number, id: :orden_request_request_number
+  .field
+    = form.label :in_charge
+    = form.text_field :in_charge, id: :orden_request_in_charge
+  .field
+    = form.label :event
+    = form.text_field :event, id: :orden_request_event
+  .field
+    = form.label :price_by_ticket
+    = form.text_field :price_by_ticket, id: :orden_request_price_by_ticket
+  .field
+    = form.label :event_id
+    = form.number_field :event_id, id: :orden_request_event_id
+  .actions
+    = form.submit

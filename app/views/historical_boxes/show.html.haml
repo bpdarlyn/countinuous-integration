@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Ticket box:
+  = @historical_box.ticket_box
+%p
+  %strong Status:
+  = @historical_box.status
+%p
+  %strong Available:
+  = @historical_box.available
+%p
+  %strong Not available:
+  = @historical_box.not_available
+%p
+  %strong Inflow detail:
+  = @historical_box.inflow_detail_id
+%p
+  %strong Outflow integer:
+  = @historical_box.outflow_integer_id
+= link_to 'Edit', edit_historical_box_path(@historical_box)
+|
+= link_to 'Back', historical_boxes_path

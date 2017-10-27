@@ -1,0 +1,180 @@
+%body
+  %header.page-header
+    %nav.navbar.mega-menu{:role => "navigation"}
+      .container-fluid
+        .clearfix.navbar-fixed-top
+          / Brand and toggle get grouped for better mobile display
+          %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.toggle-icon
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          / End Toggle Button
+          / BEGIN LOGO
+          %a#index.page-logo{:href => "index.html"}
+            = image_tag "metronic/logo.png", alt: "Logo"
+            / END LOGO
+            / BEGIN SEARCH
+            /
+              <form class="search" action="extra_search.html" method="GET">
+              <input type="name" class="form-control" name="query" placeholder="Search...">
+              <a href="javascript:;" class="btn submit md-skip">
+              <i class="fa fa-search"></i>
+              </a>
+              </form>
+            / END SEARCH
+            / BEGIN TOPBAR ACTIONS
+            .topbar-actions
+              / BEGIN GROUP NOTIFICATION
+              #header_notification_bar.btn-group-notification.btn-group
+                %button.hidden{"data-close-others" => "true", "data-hover" => "dropdown", "data-toggle" => "dropdown", :type => "button"}
+                  %i.icon-bell
+                  %span.badge 7
+                %ul.dropdown-menu-v2
+                  %li.external
+                    %h3
+                      %span.bold 12 pending
+                      notifications
+                    %a{:href => "#"} view all
+                  %li
+                    %ul.dropdown-menu-list.scroller{"data-handle-color" => "#637283", :style => "height: 250px; padding: 0;"}
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-success.md-skip
+                              %i.fa.fa-plus
+                            New user registered.
+                          %span.time just now
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-danger.md-skip
+                              %i.fa.fa-bolt
+                            Server #12 overloaded.
+                          %span.time 3 mins
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-warning.md-skip
+                              %i.fa.fa-bell-o
+                            Server #2 not responding.
+                          %span.time 10 mins
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-info.md-skip
+                              %i.fa.fa-bullhorn
+                            Application error.
+                          %span.time 14 hrs
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-danger.md-skip
+                              %i.fa.fa-bolt
+                            Database overloaded 68%.
+                          %span.time 2 days
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-danger.md-skip
+                              %i.fa.fa-bolt
+                            A user IP blocked.
+                          %span.time 3 days
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-warning.md-skip
+                              %i.fa.fa-bell-o
+                            Storage Server #4 not responding dfdfdfd.
+                          %span.time 4 days
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-info.md-skip
+                              %i.fa.fa-bullhorn
+                            System Error.
+                          %span.time 5 days
+                      %li
+                        %a{:href => "javascript:;"}
+                          %span.details
+                            %span.label.label-sm.label-icon.label-danger.md-skip
+                              %i.fa.fa-bolt
+                            Storage server failed.
+                          %span.time 9 days
+              / END GROUP NOTIFICATION
+              / BEGIN GROUP INFORMATION
+              /
+                <div class="btn-group-red btn-group">
+                <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-plus"></i>
+                </button>
+                <ul class="dropdown-menu-v2" role="menu">
+                <li class="active">
+                <a href="#">New Post</a>
+                </li>
+                <li>
+                <a href="#">New Comment</a>
+                </li>
+                <li>
+                <a href="#">Share</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                <a href="#">Comments
+                <span class="badge badge-success">4</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">Feedbacks
+                <span class="badge badge-danger">2</span>
+                </a>
+                </li>
+                </ul>
+                </div>
+              / END GROUP INFORMATION
+              / BEGIN USER PROFILE
+              .btn-group-img.btn-group
+                %button.btn.btn-sm.md-skip.dropdown-toggle{"data-close-others" => "true", "data-hover" => "dropdown", "data-toggle" => "dropdown", :type => "button"}
+                  %span Hi, Marcus
+                  = image_tag "metronic/avatar1.jpg"
+                %ul.dropdown-menu-v2{:role => "menu"}
+                  %li
+                    %a{:href => "page_user_profile_1.html"}
+                      %i.icon-user
+                      My Profile
+                      %span.badge.badge-danger 1
+                  %li
+                    %a{:href => "app_calendar.html"}
+                      %i.icon-calendar
+                      My Calendar
+                  %li
+                    %a{:href => "app_inbox.html"}
+                      %i.icon-envelope-open
+                      My Inbox
+                      %span.badge.badge-danger 3
+                  %li
+                    %a{:href => "app_todo_2.html"}
+                      %i.icon-rocket
+                      My Tasks
+                      %span.badge.badge-success 7
+                  %li.divider
+                  %li
+                    %a{:href => "page_user_lock_1.html"}
+                      %i.icon-lock
+                      Lock Screen
+                  %li
+                    %a{:href => "page_user_login_1.html"}
+                      %i.icon-key
+                      Log Out
+              / END USER PROFILE
+              / BEGIN QUICK SIDEBAR TOGGLER
+              %button.quick-sidebar-toggler.md-skip{"data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle Quick Sidebar
+                %i.icon-logout
+              / END QUICK SIDEBAR TOGGLER
+            / END TOPBAR ACTIONS
+        / BEGIN HEADER MENU
+        = render partial: "layouts/partials/menu"
+        / END HEADER MENU
+      / /container

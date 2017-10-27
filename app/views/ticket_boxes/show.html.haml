@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Nro:
+  = @ticket_box.nro
+%p
+  %strong Quantity:
+  = @ticket_box.quantity
+%p
+  %strong Product:
+  = @ticket_box.product
+= link_to 'Edit', edit_ticket_box_path(@ticket_box)
+|
+= link_to 'Back', ticket_boxes_path

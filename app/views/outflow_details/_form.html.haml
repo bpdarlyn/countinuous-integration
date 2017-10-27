@@ -1,0 +1,26 @@
+= form_with(model: outflow_detail, local: true) do |form|
+  - if outflow_detail.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(outflow_detail.errors.count, "error")
+        prohibited this outflow_detail from being saved:
+      %ul
+        - outflow_detail.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :outflow_id
+    = form.text_field :outflow_id, id: :outflow_detail_outflow_id
+  .field
+    = form.label :product_id
+    = form.text_field :product_id, id: :outflow_detail_product_id
+  .field
+    = form.label :quantity
+    = form.text_field :quantity, id: :outflow_detail_quantity
+  .field
+    = form.label :start_number
+    = form.text_field :start_number, id: :outflow_detail_start_number
+  .field
+    = form.label :end_number
+    = form.text_field :end_number, id: :outflow_detail_end_number
+  .actions
+    = form.submit

@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Product:
+  = @inflow_detail.product
+%p
+  %strong Ticket boxes:
+  = @inflow_detail.ticket_boxes_id
+%p
+  %strong Start number:
+  = @inflow_detail.start_number
+%p
+  %strong End number:
+  = @inflow_detail.end_number
+%p
+  %strong Quantity:
+  = @inflow_detail.quantity
+= link_to 'Edit', edit_inflow_detail_path(@inflow_detail)
+|
+= link_to 'Back', inflow_details_path

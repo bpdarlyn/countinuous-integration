@@ -1,0 +1,76 @@
+.nav-collapse.collapse.navbar-collapse.navbar-responsive-collapse
+  %ul.nav.navbar-nav
+    %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'dashboard')}"}
+      %a.text-uppercase{:href => "javascript:;"}
+        %i.icon-home
+        Dashboard
+      %ul.dropdown-menu.dropdown-menu-fw
+        %li{:class => "#{active_menu(params[:controller], 'home')}"}
+          = link_to root_path do
+            %i.icon-bar-chart
+            General
+    %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'product')}"}
+      %a.text-uppercase{:href => "javascript:;"}
+        %i.icon-puzzle
+        Productos
+      %ul.dropdown-menu.dropdown-menu-fw
+        %li.dropdown.more-dropdown-sub
+        %li{:class => "#{active_menu(params[:controller], 'products')}"}
+          = link_to products_path do
+            %i.icon-bar-chart
+            Lista de Productos
+        %li{:class => "#{active_menu(params[:controller], 'type_of_products')}"}
+          = link_to type_of_products_path do
+            %i.icon-bar-chart
+            Tipos Productos
+        %li{:class => "#{active_menu(params[:controller], 'inflows')}"}
+          = link_to inflows_path do
+            %i.icon-bar-chart
+            Ingreso de Productos (Tickets)
+        %li{:class => "dropdown more-dropdown-sub #{active_menu(params[:controller], 'warehouse')}"}
+          %a{:href => "javascript:;"}
+            %i.icon-bar-chart
+            Almacen
+          %ul.dropdown-menu
+            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'index')}"}
+              = link_to "Vista de Productos por Cajas", warehouse_index_path
+            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'index_all_tickets')}"}
+              = link_to "Vista de Productos en General", warehouse_index_all_tickets_path
+    %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'request')}"}
+      %a.text-uppercase{:href => "javascript:;"}
+        %i.icon-puzzle
+        Pedidos
+      %ul.dropdown-menu.dropdown-menu-fw
+        %li.dropdown.more-dropdown-sub
+        %li{:class => "#{active_menu(params[:controller], 'orden_requests')}"}
+          = link_to orden_requests_path do
+            %i.icon-bar-chart
+            Orden de Pedido
+        %li{:class => "#{active_menu(params[:controller], '')}"}
+          = link_to type_of_products_path do
+            %i.icon-bar-chart
+            Pendientes
+    %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'event')}"}
+      %a.text-uppercase{:href => "javascript:;"}
+        %i.icon-puzzle
+        Eventos
+      %ul.dropdown-menu.dropdown-menu-fw
+        %li.dropdown.more-dropdown-sub
+        %li{:class => "#{active_menu(params[:controller], 'events')}"}
+          = link_to events_path do
+            %i.icon-bar-chart
+            Lista de Eventos
+        %li{:class => "#{active_menu(params[:controller], 'type_of_events')}"}
+          = link_to type_of_events_path do
+            %i.icon-bar-chart
+            Tipos de Eventos
+    %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'personal')}"}
+      %a.text-uppercase{:href => "javascript:;"}
+        %i.icon-puzzle
+        Personal
+      %ul.dropdown-menu.dropdown-menu-fw
+        %li.dropdown.more-dropdown-sub
+        %li{:class => "#{active_menu(params[:controller], 'personal_in_charges')}"}
+          = link_to personal_in_charges_path do
+            %i.icon-bar-chart
+            Personal a Cargo

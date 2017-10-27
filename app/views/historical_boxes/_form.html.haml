@@ -1,0 +1,29 @@
+= form_with(model: historical_box, local: true) do |form|
+  - if historical_box.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(historical_box.errors.count, "error")
+        prohibited this historical_box from being saved:
+      %ul
+        - historical_box.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :ticket_box_id
+    = form.text_field :ticket_box_id, id: :historical_box_ticket_box_id
+  .field
+    = form.label :status
+    = form.check_box :status, id: :historical_box_status
+  .field
+    = form.label :available
+    = form.text_field :available, id: :historical_box_available
+  .field
+    = form.label :not_available
+    = form.text_field :not_available, id: :historical_box_not_available
+  .field
+    = form.label :inflow_detail_id
+    = form.number_field :inflow_detail_id, id: :historical_box_inflow_detail_id
+  .field
+    = form.label :outflow_integer_id
+    = form.number_field :outflow_integer_id, id: :historical_box_outflow_integer_id
+  .actions
+    = form.submit

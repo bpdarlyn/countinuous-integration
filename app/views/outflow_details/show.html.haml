@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Outflow:
+  = @outflow_detail.outflow
+%p
+  %strong Product:
+  = @outflow_detail.product
+%p
+  %strong Quantity:
+  = @outflow_detail.quantity
+%p
+  %strong Start number:
+  = @outflow_detail.start_number
+%p
+  %strong End number:
+  = @outflow_detail.end_number
+= link_to 'Edit', edit_outflow_detail_path(@outflow_detail)
+|
+= link_to 'Back', outflow_details_path

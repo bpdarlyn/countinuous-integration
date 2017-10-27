@@ -1,0 +1,21 @@
+- if product.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(product.errors.count, "error")
+      prohibited this product from being saved:
+    %ul
+      - product.errors.full_messages.each do |message|
+        %li= message
+.form-group
+  %label.col-md-3.control-label Nombre de Producto
+  .col-md-9
+    = form.text_field :name, id: :product_name, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block Escriba el nombre del nuevo Producto
+.form-group
+  %label.col-md-3.control-label Tipo de Producto
+  .col-md-9
+    = form.select :type_of_product_id, TypeOfProduct.all.map{ |t| [t.name, t.id] } ,{prompt: "Seleccione"}, {class: "form-control", required: true, id: :type_of_product_id}
+    %span.help-block Seleccione el Tipo de Producto
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", products_path, class: "btn default"

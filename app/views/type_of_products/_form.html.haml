@@ -1,0 +1,16 @@
+- if type_of_product.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(type_of_product.errors.count, "error")
+      prohibited this type_of_product from being saved:
+    %ul
+      - type_of_product.errors.full_messages.each do |message|
+        %li= message
+.form-group
+  %label.col-md-3.control-label Nombre tipo de Producto
+  .col-md-9
+    = form.text_field :name, id: :type_of_product_name, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block El Nombre del Tipo de Producto que deseas agregar
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", type_of_products_path, class: "btn default"

@@ -1,0 +1,15 @@
+/ BEGIN BREADCRUMBS
+.breadcrumbs
+  %h1= yield :page_title
+  %ol.breadcrumb
+    %li
+      = link_to "Home", root_path
+    %li
+      = yield :index_page_controller
+    %li.active
+      = yield :page_title
+/ END BREADCRUMBS
+/ BEGIN PAGE BASE CONTENT
+.row
+  .col-md-12
+    = yield :form_content

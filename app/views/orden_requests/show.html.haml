@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Date orden:
+  = @orden_request.date_orden
+%p
+  %strong Request number:
+  = @orden_request.request_number
+%p
+  %strong In charge:
+  = @orden_request.in_charge
+%p
+  %strong Event:
+  = @orden_request.event
+%p
+  %strong Price by ticket:
+  = @orden_request.price_by_ticket
+%p
+  %strong Event:
+  = @orden_request.event_id
+= link_to 'Edit', edit_orden_request_path(@orden_request)
+|
+= link_to 'Back', orden_requests_path

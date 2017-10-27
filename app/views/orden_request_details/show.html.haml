@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Orden request:
+  = @orden_request_detail.orden_request
+%p
+  %strong Product:
+  = @orden_request_detail.product
+%p
+  %strong Quantity:
+  = @orden_request_detail.quantity
+= link_to 'Edit', edit_orden_request_detail_path(@orden_request_detail)
+|
+= link_to 'Back', orden_request_details_path

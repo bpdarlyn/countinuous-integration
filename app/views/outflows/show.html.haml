@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Outflow date:
+  = @outflow.outflow_date
+%p
+  %strong Orden request:
+  = @outflow.orden_request_id
+= link_to 'Edit', edit_outflow_path(@outflow)
+|
+= link_to 'Back', outflows_path

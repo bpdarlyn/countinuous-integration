@@ -1,0 +1,39 @@
+- if inflow.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(inflow.errors.count, "error")
+      prohibited this inflow from being saved:
+    %ul
+      - inflow.errors.full_messages.each do |message|
+        %li= message
+.form-group
+  %label.col-md-3.control-label Fecha de Ingreso
+  .col-md-9
+    = form.date_select :inflow_date, id: :inflow_inflow_date, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block Selecciona la fecha del Ingreso de Productos
+.form-group
+  %label.col-md-3.control-label Detalle de Ingreso
+  .col-md-9
+    .row
+      .panel-body
+        - # = link_to_add_association 'Add Student to Training', f, :trainee_trainings, class: 'btn btn-info '
+        .table-responsive
+          %button#add-item.btn.btn-info{:type => "button"} Añadir item
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th Producto
+                %th Nro Caja
+                %th Nro de Serie Comienzo (Caja)
+                %th Nro de Serie Fin (Caja)
+                %th Cantidad
+                %th
+            %tbody.line_items
+              = form.fields_for :inflow_details do |ff|
+                = render "inflow_detail_fields", f: ff
+                .link
+          .itemAdd
+            = link_to_add_association 'Agregar nuevo item', form, :inflow_details, :id => 'cocconAddItem', :style => 'display:none', data: {"association-insertion-node" => "tbody.line_items", "association-insertion-method" => "append"}
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", inflows_path, class: "btn default"

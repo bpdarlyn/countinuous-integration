@@ -1,0 +1,24 @@
+%p#notice= notice
+%h1 Inflow Details
+%table
+  %thead
+    %tr
+      %th Product
+      %th Ticket boxes
+      %th Start number
+      %th End number
+      %th Quantity
+      %th{:colspan => "3"}
+  %tbody
+    - @inflow_details.each do |inflow_detail|
+      %tr
+        %td= inflow_detail.product
+        %td= inflow_detail.ticket_boxes_id
+        %td= inflow_detail.start_number
+        %td= inflow_detail.end_number
+        %td= inflow_detail.quantity
+        %td= link_to 'Show', inflow_detail
+        %td= link_to 'Edit', edit_inflow_detail_path(inflow_detail)
+        %td= link_to 'Destroy', inflow_detail, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Inflow Detail', new_inflow_detail_path

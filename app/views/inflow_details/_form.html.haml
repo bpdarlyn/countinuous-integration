@@ -1,0 +1,26 @@
+= form_with(model: inflow_detail, local: true) do |form|
+  - if inflow_detail.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(inflow_detail.errors.count, "error")
+        prohibited this inflow_detail from being saved:
+      %ul
+        - inflow_detail.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :product_id
+    = form.text_field :product_id, id: :inflow_detail_product_id
+  .field
+    = form.label :ticket_boxes_id
+    = form.number_field :ticket_boxes_id, id: :inflow_detail_ticket_boxes_id
+  .field
+    = form.label :start_number
+    = form.text_field :start_number, id: :inflow_detail_start_number
+  .field
+    = form.label :end_number
+    = form.text_field :end_number, id: :inflow_detail_end_number
+  .field
+    = form.label :quantity
+    = form.text_field :quantity, id: :inflow_detail_quantity
+  .actions
+    = form.submit

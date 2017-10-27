@@ -1,0 +1,88 @@
+/ BEGIN BREADCRUMBS
+.breadcrumbs
+  %h1= yield :page_title
+  %ol.breadcrumb
+    %li
+      = link_to "Home", root_path
+    %li.active
+      = yield :page_title
+/ END BREADCRUMBS
+/ BEGIN PAGE BASE CONTENT
+.row
+  .col-md-12
+    .table-toolbar
+      .row
+        .col-md-6
+          .btn-group
+            = yield :new_button
+        .col-md-6
+          /
+            <div class="btn-group pull-right">
+            <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+            <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right">
+            <li>
+            <a href="javascript:;">
+            <i class="fa fa-print"></i> Print </a>
+            </li>
+            <li>
+            <a href="javascript:;">
+            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
+            </li>
+            <li>
+            <a href="javascript:;">
+            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
+            </li>
+            </ul>
+            </div>
+    %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+      %thead
+        %tr
+          = yield :thead
+      %tbody
+        = yield :tbody
+= content_for :javascript do
+  :javascript
+    $(document).ready(function(){
+        var e = $("#table");
+        e.dataTable(
+        //     {
+        //     language: {
+        //         aria: {
+        //             sortAscending: ": activate to sort column ascending",
+        //             sortDescending: ": activate to sort column descending"
+        //         },
+        //         emptyTable: "No data available in table",
+        //         info: "Showing _START_ to _END_ of _TOTAL_ records",
+        //         infoEmpty: "No records found",
+        //         infoFiltered: "(filtered1 from _MAX_ total records)",
+        //         lengthMenu: "Show _MENU_",
+        //         search: "Search:",
+        //         zeroRecords: "No matching records found",
+        //         paginate: {
+        //             previous: "Prev",
+        //             next: "Next",
+        //             last: "Last",
+        //             first: "First"
+        //         }
+        //     },
+        //     bStateSave: !0,
+        //     lengthMenu: [
+        //         [5, 15, 20, -1],
+        //         [5, 15, 20, "All"]
+        //     ],
+        //     pageLength: 5,
+        //     pagingType: "bootstrap_full_number",
+        //     columnDefs: [{
+        //         orderable: !1,
+        //         targets: [0]
+        //     }, {
+        //         searchable: !1,
+        //         targets: [0]
+        //     }, {
+        //         className: "dt-right"
+        //     }]
+        // }
+            );
+    })
