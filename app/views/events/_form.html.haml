@@ -1,20 +1,29 @@
-= form_with(model: event, local: true) do |form|
-  - if event.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(event.errors.count, "error")
-        prohibited this event from being saved:
-      %ul
-        - event.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name, id: :event_name
-  .field
-    = form.label :event_date
-    = form.date_select :event_date, id: :event_event_date
-  .field
-    = form.label :type_of_event_id
-    = form.number_field :type_of_event_id, id: :event_type_of_event_id
-  .actions
-    = form.submit
+- if event.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(event.errors.count, "error")
+      prohibited this event from being saved:
+    %ul
+      - event.errors.full_messages.each do |message|
+        %li= message
+.row
+  .form-group
+    %label.col-md-3.control-label Fecha del Evento
+    .col-md-9
+      = form.date_select :event_date, id: :event_event_date, class: "form-control"
+      %span.help-block Elige una fecha, posterior a la fecha actual
+  .form-group
+    %label.col-md-3.control-label Nombre del Evento
+    .col-md-9
+      = form.text_field :name, id: :event_name, class: "form-control", placeholder: "Ingresa un texto"
+      %span.help-block Nombre del Evento debe ser ddmmYY-NOMBRE, por ejemplo 010117-CONCIERTO X
+.row
+  .form-group
+    %label.col-md-3.control-label Tipo de Evento
+    .col-md-9
+      = form.select :type_of_event_id, TypeOfEvent.all.map { |t| [t.name,t.id]  },{prompt: "Seleccione un elemento"}, {class: "form-control", required: true, id: :type_of_event_id}
+      %span.help-block Seleccione un tipo de Evento
+
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", events_path, class: "btn default"

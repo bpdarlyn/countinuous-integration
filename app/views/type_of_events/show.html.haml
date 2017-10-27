@@ -1,7 +1,20 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @type_of_event.name
-= link_to 'Edit', edit_type_of_event_path(@type_of_event)
-|
-= link_to 'Back', type_of_events_path
+= content_for :page_title do
+  Detalle de Tipo de Evento
+= content_for :index_page_controller do
+  = link_to "Tipos de Eventos", type_of_events_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Nombre tipo de Evento:
+          .col-md-4
+            = @type_of_event.name
+        %br/
+        %br/
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_type_of_event_path(@type_of_event), class: "btn btn-warning"
+            = link_to 'Atrás', type_of_events_path, class: "btn default"
+= render template: "layouts/abstracts/show"

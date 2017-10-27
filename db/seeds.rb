@@ -19,3 +19,7 @@ if Product.count == 0
 	p "Productos creados satisfactoriamente"
 end
 
+if TypeOfEvent.count == 0
+	TypeOfEvent.create(name: "Default")
+	p "Tipo de Evento creado satisfactoriamente"
+end

@@ -1,3 +1,13 @@
-%h1 New Event
-= render 'form', event: @event
-= link_to 'Back', events_path
+= content_for :page_title do
+  Nuevo Evento
+= content_for :index_page_controller do
+  = link_to "Eventos", events_path
+= content_for :form_content do
+  = form_with(model: @event, local: true, class: "form-horizontal") do |form|
+    .form-body
+      = render 'form', form: form, event: @event
+      .form-actions
+        .row
+          .col-md-offset-2.col-md-10
+            = yield :action_buttons
+= render template: "layouts/abstracts/new"

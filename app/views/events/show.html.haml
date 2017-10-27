@@ -1,13 +1,31 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @event.name
-%p
-  %strong Event date:
-  = @event.event_date
-%p
-  %strong Type of event:
-  = @event.type_of_event_id
-= link_to 'Edit', edit_event_path(@event)
-|
-= link_to 'Back', events_path
+= content_for :page_title do
+  Detalle de Evento
+= content_for :index_page_controller do
+  = link_to "Eventos", events_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Fecha de Evento
+          .col-md-4
+            = @event.event_date
+          %label.col-md-2.control-label
+            Nombre de Evento:
+          .col-md-4
+            = @event.name
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Tipo de Evento
+          .col-md-4
+            = @event.type_of_event.try(:name)
+
+        %br/
+        %br/
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_event_path(@event), class: "btn btn-warning"
+            = link_to 'Atrás', events_path, class: "btn default"
+= render template: "layouts/abstracts/show"

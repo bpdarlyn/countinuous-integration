@@ -1,14 +1,16 @@
-= form_with(model: type_of_event, local: true) do |form|
-  - if type_of_event.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(type_of_event.errors.count, "error")
-        prohibited this type_of_event from being saved:
-      %ul
-        - type_of_event.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name, id: :type_of_event_name
-  .actions
-    = form.submit
+- if type_of_event.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(type_of_event.errors.count, "error")
+      prohibited this type_of_event from being saved:
+    %ul
+      - type_of_event.errors.full_messages.each do |message|
+        %li= message
+.form-group
+  %label.col-md-3.control-label Nombre tipo de Evento
+  .col-md-9
+    = form.text_field :name, id: :type_of_event_name, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block El Nombre del Tipo de Evento que deseas agregar
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", type_of_events_path, class: "btn default"
