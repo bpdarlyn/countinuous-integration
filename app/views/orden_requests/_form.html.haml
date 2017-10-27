@@ -44,6 +44,27 @@
       = form.text_field :price_by_ticket, id: :orden_request_price_by_ticket, class: 'form-control'
       %span.help-block Escriba el precio por Tickets (Si el pedido fuera por tickets)
 
+.row
+  .form-group
+    %label.col-md-2.control-label Detalle de Pedido
+    .col-md-10
+      .row
+        .panel-body
+          - # = link_to_add_association 'Add Student to Training', f, :trainee_trainings, class: 'btn btn-info '
+          .table-responsive
+            %button#add-item-orden-request.btn.btn-info{:type => "button"} Añadir item
+            %table.table.table-striped.table-hover
+              %thead
+                %tr
+                  %th Producto
+                  %th Cantidad
+                  %th
+              %tbody.line_items
+                = form.fields_for :orden_request_details do |ff|
+                  = render "orden_request_detail_fields", f: ff
+                  .link
+            .itemAdd
+              = link_to_add_association 'Agregar nuevo item', form, :orden_request_details, :id => 'cocconAddItem', :style => 'display:none', data: {"association-insertion-node" => "tbody.line_items", "association-insertion-method" => "append"}
 = content_for :action_buttons do
   = form.submit 'Guardar', class: "btn green"
   = link_to "Cancelar", orden_requests_path, class: "btn default"
@@ -67,19 +88,6 @@
         .autocomplete({
           source: $('#orden_request_event').data('autocomplete-source'),
           minLength: 2
-          // select: function (event, ui) {
-          //   $.ajax({
-          //     url: '/users/get_common_data',
-          //    data: {name: ui.item.value},
-          //    dataType: 'json',
-          //    success: function(data){
-          //     $('#name').val(data.name);
-          //     $('#name').attr('readonly', true);
-          //     $('#last_name').val(data.last_name);
-          //     $('#last_name').attr('readonly', true);
-          //    }
-          //  });
-          // }
         });
 
 

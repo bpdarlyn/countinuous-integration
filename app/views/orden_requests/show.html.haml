@@ -44,6 +44,25 @@
             Precio por Ticket :
           .col-md-4
             = @orden_request.price_by_ticket
+        %br
+        .row
+          - if @orden_request.orden_request_details.count > 0
+            .form-group
+              .col-md-6
+                %h4 Detalle:
+                %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+                  %thead
+                    %tr
+                      %th Producto
+                      %th Cantidad
+                  %tbody
+                    - @orden_request.orden_request_details.each do |orden_request_detail|
+                      %tr
+                        - product = orden_request_detail.product
+                        %td
+                          = product.type_of_product.try(:name)
+                          \- #{product.name}
+                        %td= orden_request_detail.quantity
         %br/
         %br/
         .form-group

@@ -75,6 +75,7 @@ class OrdenRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_request_params
-      params.require(:orden_request).permit(:date_orden, :request_number, :personal_in_charge_id, :event, :price_by_ticket, :event_id, :event_date, :ticket_quantity)
+      params.require(:orden_request).permit(:date_orden, :request_number, :personal_in_charge_id, :event, :price_by_ticket, :event_id, :event_date, :ticket_quantity,
+                                            :orden_request_details_attributes => [:id, :product_id, :quantity, :_destroy] )
     end
 end

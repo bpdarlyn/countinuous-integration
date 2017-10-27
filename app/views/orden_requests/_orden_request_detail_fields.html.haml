@@ -1,0 +1,7 @@
+%tr.nested-fields
+  %td
+    = f.select :product_id, Product.all.map{ |p| ["#{p.type_of_product.try(:name)} - #{p.name}", p.id]}, { prompt: "Seleccione un Producto"}, { class: "form-control", required: true}
+  %td
+    = f.number_field :quantity, class: 'form-control', required: true, min: 0, step: 1
+  %td
+    = link_to_remove_association "X", f, class: "btn btn-danger btn-xs"
