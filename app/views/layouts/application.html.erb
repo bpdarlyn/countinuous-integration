@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Ticketeg Inventory</title>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Inventory System" name="description"/>
+    <meta name="author"/>
+    <%= csrf_meta_tags %>
+    <link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">/</link>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">/</link>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <!-- Check when user is logged
+  -->
+  <body class="page-header-fixed page-sidebar-closed-hide-logo">
+    <div class="wrapper">
+      <%= render partial: "layouts/partials/header" %>
+      <!-- menu_bar is inside header
+      -->
+      <div class="container-fluid">
+        <div class="page-content">
+          <%= yield %>
+        </div>
+        <%= render partial: "layouts/partials/footer" %>
+      </div>
+    </div>
+    <%= javascript_include_tag 'application' %>
+    <% unless flash.empty? %>
+      <script type="text/javascript">
+       <% flash.each do |f| %>
+         <% type = f[0].gsub('alert', 'ruby').gsub('notice', 'teal') %>
+         $.notific8("<%= f[1] %>", { theme: "<%= type %>",life: 5000 } );
+       <% end %>
+      </script>
+     <% end %>
+    <%= yield :javascript %>
+  </body>
+</html>

@@ -22,6 +22,8 @@
 //= require metronic/daterangepicker.js
 //= require metronic/morris.js
 
+//= require metronic/jquery.notific8.min.js
+
 //= require metronic/datatable.js
 //= require metronic/datatables.min.js
 //= require metronic/datatables.bootstrap.js
