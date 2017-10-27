@@ -22,9 +22,10 @@
             Ocupación:
           .col-md-4
             = @personal_in_charge.ocupation
-          .col-md-6	
+          .col-md-6
+      %br
       .row
-        .form-group
+        .form-actions
           .col-md-9
             = link_to 'Editar', edit_personal_in_charge_path(@personal_in_charge), class: "btn btn-warning"
             = link_to 'Atrás', personal_in_charges_path, class: "btn default"
