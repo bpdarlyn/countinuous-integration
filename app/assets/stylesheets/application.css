@@ -12,6 +12,7 @@
  *
  *= require metronic/font-awesome.scss
  *= require metronic/simple-line-icons.scss
+ *= require jquery-ui
  *= require metronic/bootstrap.scss
  *= require metronic/bootstrap-switch.css
  *= require metronic/components.css

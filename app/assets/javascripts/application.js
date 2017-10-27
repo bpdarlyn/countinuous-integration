@@ -12,6 +12,7 @@
 //
 //= require metronic/jquery.min.js
 //= require rails-ujs
+//= require jquery-ui
 //= require metronic/bootstrap.js
 //= require metronic/js.cookie.min.js
 //= require metronic/jquery.slimscroll.js

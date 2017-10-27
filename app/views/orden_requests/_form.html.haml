@@ -22,7 +22,7 @@
       %span.help-block Seleccione Fecha del Evento
     %label.col-md-2.control-label Nombre del Evento
     .col-md-4
-      = form.text_field :event, id: :orden_request_event, class: 'form-control'
+      = form.text_field :event, id: :orden_request_event, class: 'form-control', :data => { autocomplete_source: get_event_autocomplete_path }, :required => true
       %span.help-block Escriba el nombre del Evento
 .row
   .form-group
@@ -57,7 +57,27 @@
         .on("change",function(){
           var date_input_string = $(this).val().toString();
           var new_date_for_event_name = date_input_string.replace(/\//g, '');
-          $("#orden_request_event").val(new_date_for_event_name + "-");
+          $("#orden_request_event").val(new_date_for_event_name);
         })
+
+      $('#orden_request_event')
+        .autocomplete({
+          source: $('#orden_request_event').data('autocomplete-source'),
+          minLength: 2
+          // select: function (event, ui) {
+          //   $.ajax({
+          //     url: '/users/get_common_data',
+          //    data: {name: ui.item.value},
+          //    dataType: 'json',
+          //    success: function(data){
+          //     $('#name').val(data.name);
+          //     $('#name').attr('readonly', true);
+          //     $('#last_name').val(data.last_name);
+          //     $('#last_name').attr('readonly', true);
+          //    }
+          //  });
+          // }
+        });
+
 
     })
