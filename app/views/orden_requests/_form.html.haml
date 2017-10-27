@@ -15,7 +15,10 @@
   .form-group
     %label.col-md-2.control-label Fecha del Evento
     .col-md-4
-      = form.date_select :event_date, id: :orden_request_event_date, class: 'form-control'
+      - if form.object.persisted?
+        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false", value: orden_request.event_date.strftime("%d/%m/%Y")
+      - else
+        = form.text_field :event_date, id: :orden_request_event_date, class: 'form-control', "onkeydown"=>"return false"
       %span.help-block Seleccione Fecha del Evento
     %label.col-md-2.control-label Nombre del Evento
     .col-md-4
@@ -25,7 +28,7 @@
   .form-group
     %label.col-md-2.control-label Personal Encargado
     .col-md-4
-      = form.text_field :personal_in_charge_id, id: :orden_request_personal_in_charge_id
+      = form.select :personal_in_charge_id, PersonalInCharge.all.map{ |p| ["#{p.full_name}", p.id] },{ prompt: "Seleccione un elemento"},{ class: "form-control",  id: :orden_request_personal_in_charge_id }
       %span.help-block Seleccione un Personal Encargado
 .row
   .form-group
@@ -41,3 +44,20 @@
 = content_for :action_buttons do
   = form.submit 'Guardar', class: "btn green"
   = link_to "Cancelar", orden_requests_path, class: "btn default"
+
+
+= content_for :javascript do
+  :javascript
+    $(document).ready(function(){
+      $("#orden_request_event_date")
+        .datepicker({
+          autoclose: true,
+          language: 'es'
+        })
+        .on("change",function(){
+          var date_input_string = $(this).val().toString();
+          var new_date_for_event_name = date_input_string.replace(/\//g, '');
+          $("#orden_request_event").val(new_date_for_event_name + "-");
+        })
+
+    })

@@ -25,6 +25,8 @@
 //= require metronic/datatables.min.js
 //= require metronic/datatables.bootstrap.js
 
+//= require metronic/bootstrap-datepicker.js
+//= require metronic/bootstrap-datepicker.es.min.js
 
 //= require metronic/app.js
 //= require metronic/dashboard.js

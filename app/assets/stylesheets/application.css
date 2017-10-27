@@ -20,6 +20,8 @@
  *= require metronic/datatables.bootstrap.css
 
 
+ *= require metronic/bootstrap-datepicker3.css
+
  *= require metronic/plugins.scss
  *= require metronic/layout.css
  *= require metronic/custom.css
