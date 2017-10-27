@@ -1,15 +1,31 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @personal_in_charge.name
-%p
-  %b Last name:
-  = @personal_in_charge.last_name
-%p
-  %b Ocupation:
-  = @personal_in_charge.ocupation
-
-= link_to 'Edit', edit_personal_in_charge_path(@personal_in_charge)
-\|
-= link_to 'Back', personal_in_charges_path
+= content_for :page_title do
+  Detalle de Personal Encargado
+= content_for :index_page_controller do
+  = link_to "Personal Encargado", personal_in_charges_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Nombre:
+          .col-md-4
+            = @personal_in_charge.name
+        .form-group
+          %label.col-md-2.control-label
+            Apellido:
+          .col-md-4
+            = @personal_in_charge.last_name
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Ocupación:
+          .col-md-4
+            = @personal_in_charge.ocupation
+          .col-md-6	
+      .row
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_personal_in_charge_path(@personal_in_charge), class: "btn btn-warning"
+            = link_to 'Atrás', personal_in_charges_path, class: "btn default"
+= render template: "layouts/abstracts/show"

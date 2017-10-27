@@ -1,7 +1,14 @@
-%h1 Editing personal_in_charge
-
-= render 'form'
-
-= link_to 'Show', @personal_in_charge
-\|
-= link_to 'Back', personal_in_charges_path
+= content_for :page_title do
+  Edición de Personal Encargado
+= content_for :index_page_controller do
+  = link_to "Personal Encargado", personal_in_charges_path
+= content_for :form_content do
+  = form_for @personal_in_charge, html: { class: "form-horizontal" } do |f|
+    .form-body
+      = render 'form', f: f
+      .form-actions
+        .row
+          .col-md-offset-2.col-md-10
+            = link_to 'Mostrar', @personal_in_charge, class: "btn blue"
+            = yield :action_buttons
+= render template: "layouts/abstracts/edit"

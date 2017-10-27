@@ -1,25 +1,37 @@
-%h1 Listing personal_in_charges
-
-%table
-  %thead
+= content_for :page_title do
+  Personal Encargado
+= content_for :new_button do
+  = link_to new_personal_in_charge_path, class: "btn sbold green" do
+    Nuevo Personal Encargado
+    %i.fa.fa-plus
+= content_for :thead do
+  %th Nombre
+  %th Apellido
+  %th Ocupación
+  %th Acciones
+= content_for :tbody do
+  - @personal_in_charges.each do |personal_in_charge|
     %tr
-      %th Name
-      %th Last name
-      %th Ocupation
-      %th
-      %th
-      %th
-
-  %tbody
-    - @personal_in_charges.each do |personal_in_charge|
-      %tr
-        %td= personal_in_charge.name
-        %td= personal_in_charge.last_name
-        %td= personal_in_charge.ocupation
-        %td= link_to 'Show', personal_in_charge
-        %td= link_to 'Edit', edit_personal_in_charge_path(personal_in_charge)
-        %td= link_to 'Destroy', personal_in_charge, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Personal in charge', new_personal_in_charge_path
+      %td= personal_in_charge.name
+      %td= personal_in_charge.last_name
+      %td= personal_in_charge.ocupation
+      %td
+        .btn-group
+          %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+            Acciones
+            %i.fa.fa-angle-down
+          %ul.dropdown-menu.pull-left{:role => "menu"}
+            %li
+              = link_to personal_in_charge do
+                %i.icon-docs
+                Mostrar Personal Encargado
+            %li
+              = link_to edit_personal_in_charge_path(personal_in_charge) do
+                %i.fa.fa-pencil
+                Editar Personal Encargado
+            %li.divider
+            %li
+              = link_to personal_in_charge, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-trash-o
+                Eliminar Personal Encargado
+= render template: "layouts/abstracts/index"

@@ -1,19 +1,27 @@
-= form_for @personal_in_charge do |f|
-  - if @personal_in_charge.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@personal_in_charge.errors.count, "error")} prohibited this personal_in_charge from being saved:"
-      %ul
-        - @personal_in_charge.errors.full_messages.each do |message|
-          %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :ocupation
-    = f.text_field :ocupation
-  .actions
-    = f.submit 'Save'
+- if @personal_in_charge.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@personal_in_charge.errors.count, "error")} prohibited this personal_in_charge from being saved:"
+    %ul
+      - @personal_in_charge.errors.full_messages.each do |message|
+        %li= message
+
+.form-group
+  %label.col-md-2.control-label Nombre
+  .col-md-4
+    = f.text_field :name, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block Ingresa el Nombre de la Persona Encargada
+  %label.col-md-2.control-label Apellido
+  .col-md-4
+    = f.text_field :last_name, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block Ingresa el Apellido de la Persona Encargada
+
+.form-group
+  %label.col-md-2.control-label Ocupación
+  .col-md-4
+    = f.text_field :ocupation, class: "form-control", placeholder: "Ingresa un texto"
+    %span.help-block Ingresa la Ocupación de la Persona Encargada
+
+= content_for :action_buttons do
+  = f.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", personal_in_charges_path, class: "btn default"
