@@ -64,10 +64,12 @@ ActiveRecord::Schema.define(version: 20171026205325) do
   create_table "orden_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "date_orden"
     t.string "request_number"
-    t.string "in_charge"
+    t.integer "personal_in_charge_id"
+    t.date "event_date"
     t.string "event"
     t.decimal "price_by_ticket", precision: 10
     t.integer "event_id"
+    t.integer "ticket_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

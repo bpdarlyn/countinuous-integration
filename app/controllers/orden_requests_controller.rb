@@ -25,7 +25,7 @@ class OrdenRequestsController < ApplicationController
   # POST /orden_requests.json
   def create
     @orden_request = OrdenRequest.new(orden_request_params)
-
+    @orden_request.date_orden = Time.now 
     respond_to do |format|
       if @orden_request.save
         format.html { redirect_to @orden_request, notice: 'Orden request was successfully created.' }
@@ -69,6 +69,6 @@ class OrdenRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_request_params
-      params.require(:orden_request).permit(:date_orden, :request_number, :in_charge, :event, :price_by_ticket, :event_id)
+      params.require(:orden_request).permit(:date_orden, :request_number, :personal_in_charge_id, :event, :price_by_ticket, :event_id, :event_date, :ticket_quantity)
     end
 end

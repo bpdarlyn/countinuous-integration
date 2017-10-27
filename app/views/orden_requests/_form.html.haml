@@ -1,29 +1,43 @@
-= form_with(model: orden_request, local: true) do |form|
-  - if orden_request.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(orden_request.errors.count, "error")
-        prohibited this orden_request from being saved:
-      %ul
-        - orden_request.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :date_orden
-    = form.date_select :date_orden, id: :orden_request_date_orden
-  .field
-    = form.label :request_number
-    = form.text_field :request_number, id: :orden_request_request_number
-  .field
-    = form.label :in_charge
-    = form.text_field :in_charge, id: :orden_request_in_charge
-  .field
-    = form.label :event
-    = form.text_field :event, id: :orden_request_event
-  .field
-    = form.label :price_by_ticket
-    = form.text_field :price_by_ticket, id: :orden_request_price_by_ticket
-  .field
-    = form.label :event_id
-    = form.number_field :event_id, id: :orden_request_event_id
-  .actions
-    = form.submit
+- if orden_request.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(orden_request.errors.count, "error")
+      prohibited this orden_request from being saved:
+    %ul
+      - orden_request.errors.full_messages.each do |message|
+        %li= message
+.row
+  .form-group
+    %label.col-md-2.control-label Código de Pedido
+    .col-md-4
+      = form.text_field :request_number, id: :orden_request_request_number, class: "form-control", placeholder: "Texto Automatico"
+.row
+  .form-group
+    %label.col-md-2.control-label Fecha del Evento
+    .col-md-4
+      = form.date_select :event_date, id: :orden_request_event_date, class: 'form-control'
+      %span.help-block Seleccione Fecha del Evento
+    %label.col-md-2.control-label Nombre del Evento
+    .col-md-4
+      = form.text_field :event, id: :orden_request_event, class: 'form-control'
+      %span.help-block Escriba el nombre del Evento
+.row
+  .form-group
+    %label.col-md-2.control-label Personal Encargado
+    .col-md-4
+      = form.text_field :personal_in_charge_id, id: :orden_request_personal_in_charge_id
+      %span.help-block Seleccione un Personal Encargado
+.row
+  .form-group
+    %label.col-md-2.control-label Cantidad Total de Tickets
+    .col-md-4
+      = form.number_field :ticket_quantity, id: :orden_request_ticket_quantity, class: 'form-control'
+      %span.help-block Escriba la cantidad de Tickets
+    %label.col-md-2.control-label Precio por Ticket
+    .col-md-4
+      = form.text_field :price_by_ticket, id: :orden_request_price_by_ticket, class: 'form-control'
+      %span.help-block Escriba el precio por Tickets (Si el pedido fuera por tickets)
+
+= content_for :action_buttons do
+  = form.submit 'Guardar', class: "btn green"
+  = link_to "Cancelar", orden_requests_path, class: "btn default"

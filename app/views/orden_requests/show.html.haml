@@ -1,22 +1,53 @@
-%p#notice= notice
-%p
-  %strong Date orden:
-  = @orden_request.date_orden
-%p
-  %strong Request number:
-  = @orden_request.request_number
-%p
-  %strong In charge:
-  = @orden_request.in_charge
-%p
-  %strong Event:
-  = @orden_request.event
-%p
-  %strong Price by ticket:
-  = @orden_request.price_by_ticket
-%p
-  %strong Event:
-  = @orden_request.event_id
-= link_to 'Edit', edit_orden_request_path(@orden_request)
-|
-= link_to 'Back', orden_requests_path
+= content_for :page_title do
+  Detalle de Orden de Pedido
+= content_for :index_page_controller do
+  = link_to "Ordenes de Pedido", orden_requests_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Código de Pedido :
+          .col-md-4
+            = @orden_request.request_number
+          %label.col-md-2.control-label
+            Fecha de Pedido :
+          .col-md-4
+            = @orden_request.date_orden
+      %br
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Fecha del Evento :
+          .col-md-4
+            = @orden_request.event_date
+          %label.col-md-2.control-label
+            Nombre del Evento :
+          .col-md-4
+            = @orden_request.event
+      %br
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Personal Encargado :
+          .col-md-4
+            = @orden_request.personal_in_charge_id
+      %br
+      .row
+        .form-group
+          %label.col-md-2.control-label
+            Cantidad de Tickets :
+          .col-md-4
+            = @orden_request.ticket_quantity
+          %label.col-md-2.control-label
+            Precio por Ticket :
+          .col-md-4
+            = @orden_request.price_by_ticket
+        %br/
+        %br/
+        .form-group
+          .col-md-9
+            = link_to 'Editar', edit_orden_request_path(@orden_request), class: "btn btn-warning"
+            = link_to 'Atrás', orden_requests_path, class: "btn default"
+= render template: "layouts/abstracts/show"

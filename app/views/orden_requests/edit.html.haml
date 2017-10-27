@@ -1,5 +1,14 @@
-%h1 Editing Orden Request
-= render 'form', orden_request: @orden_request
-= link_to 'Show', @orden_request
-|
-= link_to 'Back', orden_requests_path
+= content_for :page_title do
+  Edición de Orden de Pedido
+= content_for :index_page_controller do
+  = link_to "Ordenes de Pedido", orden_requests_path
+= content_for :form_content do
+  = form_with(model: @orden_request, local: true, class: "form-horizontal") do |form|
+    .form-body
+      = render 'form', form: form, orden_request: @orden_request
+      .form-actions
+        .row
+          .col-md-offset-2.col-md-10
+            = link_to "Mostrar", @orden_request, class: "btn blue"
+            = yield :action_buttons
+= render template: "layouts/abstracts/edit"
