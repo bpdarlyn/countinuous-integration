@@ -33,13 +33,4 @@
               = link_to orden_request do
                 %i.icon-docs
                 Mostrar Orden de Pedido
-            %li
-              = link_to edit_orden_request_path(orden_request) do
-                %i.fa.fa-pencil
-                Editar Orden de Pedido
-            %li.divider
-            %li
-              = link_to orden_request, method: :delete, data: { confirm: 'Are you sure?' } do
-                %i.fa.fa-trash-o
-                Eliminar Orden de Pedido
 = render template: "layouts/abstracts/index"

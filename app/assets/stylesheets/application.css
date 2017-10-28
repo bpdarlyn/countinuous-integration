@@ -17,7 +17,7 @@
  *= require metronic/bootstrap-switch.css
  *= require metronic/components.css
 
-*= require metronic/jquery.notific8.min.css
+ *= require metronic/jquery.notific8.min.css
 
  *= require metronic/datatables.scss
  *= require metronic/datatables.bootstrap.css
@@ -30,3 +30,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.control-label {
+  text-align: right;
+}

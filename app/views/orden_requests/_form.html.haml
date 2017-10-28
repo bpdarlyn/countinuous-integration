@@ -37,8 +37,11 @@
   .form-group
     %label.col-md-2.control-label Cantidad Total de Tickets
     .col-md-4
-      = form.number_field :ticket_quantity, id: :orden_request_ticket_quantity, class: 'form-control'
-      %span.help-block Escriba la cantidad de Tickets
+      - if form.object.persisted?
+        = form.number_field :ticket_quantity, id: :orden_request_ticket_quantity, class: 'form-control', readonly: true,  "onkeydown"=>"return false"
+      - else
+        = form.number_field :ticket_quantity, id: :orden_request_ticket_quantity, class: 'form-control', readonly: true,  "onkeydown"=>"return false", value: '0'
+      %span.help-block La cantidad será actualizada automáticamente
     %label.col-md-2.control-label Precio por Ticket
     .col-md-4
       = form.text_field :price_by_ticket, id: :orden_request_price_by_ticket, class: 'form-control'
@@ -50,7 +53,6 @@
     .col-md-10
       .row
         .panel-body
-          - # = link_to_add_association 'Add Student to Training', f, :trainee_trainings, class: 'btn btn-info '
           .table-responsive
             %button#add-item-orden-request.btn.btn-info{:type => "button"} Añadir item
             %table.table.table-striped.table-hover
@@ -89,6 +91,4 @@
           source: $('#orden_request_event').data('autocomplete-source'),
           minLength: 2
         });
-
-
-    })
+    });
