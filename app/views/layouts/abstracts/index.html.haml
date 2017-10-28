@@ -6,8 +6,6 @@
       = link_to "Home", root_path
     %li.active
       = yield :page_title
-/ END BREADCRUMBS
-/ BEGIN PAGE BASE CONTENT
 .row
   .col-md-12
     .table-toolbar
@@ -16,26 +14,7 @@
           .btn-group
             = yield :new_button
         .col-md-6
-          /
-            <div class="btn-group pull-right">
-            <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Tools
-            <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right">
-            <li>
-            <a href="javascript:;">
-            <i class="fa fa-print"></i> Print </a>
-            </li>
-            <li>
-            <a href="javascript:;">
-            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-            </li>
-            <li>
-            <a href="javascript:;">
-            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-            </li>
-            </ul>
-            </div>
+
     %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
       %thead
         %tr

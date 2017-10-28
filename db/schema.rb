@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20171027182240) do
     t.decimal "price_by_ticket", precision: 6, scale: 2
     t.integer "event_id"
     t.integer "ticket_quantity"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

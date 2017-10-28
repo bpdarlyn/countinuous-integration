@@ -46,10 +46,18 @@
           = link_to orden_requests_path do
             %i.icon-bar-chart
             Orden de Pedido
-        %li{:class => "#{active_menu(params[:controller], '')}"}
-          = link_to type_of_products_path do
+        %li{:class => "#{active_menu(params[:controller], 'pending')}"}
+          = link_to pending_path do
             %i.icon-bar-chart
-            Pendientes
+            Pedidos Pendientes
+        %li{:class => "#{active_menu(params[:controller], 'processed')}"}
+          = link_to processed_path do
+            %i.icon-bar-chart
+            Pedidos Procesados
+        %li{:class => "#{active_menu(params[:controller], 'canceled')}"}
+          = link_to canceled_path do
+            %i.icon-bar-chart
+            Pedidos Cancelados
     %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'event')}"}
       %a.text-uppercase{:href => "javascript:;"}
         %i.icon-puzzle

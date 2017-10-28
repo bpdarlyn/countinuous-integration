@@ -9,6 +9,7 @@ class CreateOrdenRequests < ActiveRecord::Migration[5.1]
       t.decimal :price_by_ticket, :precision => 6, :scale => 2
       t.integer :event_id
       t.integer :ticket_quantity
+      t.integer :status, default: 0
       t.timestamps
     end
   end

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'warehouse/index'
   get 'warehouse/index_all_tickets'
+  get 'pending', to: "warehouse#pending"
+  get 'processed', to: "warehouse#processed"
+  get 'canceled', to: "warehouse#canceled"
   get 'get_event_autocomplete', to: 'events#get_event_autocomplete'
 
   resources :personal_in_charges
