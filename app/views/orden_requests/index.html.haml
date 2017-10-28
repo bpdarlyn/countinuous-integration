@@ -16,10 +16,10 @@
 = content_for :tbody do
   - @orden_requests.each do |orden_request|
     %tr
-      %td= orden_request.date_orden
+      %td= l(orden_request.date_orden, format: '%d de %B de %Y')
       %td= orden_request.request_number
       %td= orden_request.personal_in_charge.try(:name)
-      %td= orden_request.event_date
+      %td= l(orden_request.event_date, format: '%d de %B de %Y')
       %td= orden_request.event # TODO: Here we should fix it
       %td= orden_request.ticket_quantity
       %td= orden_request.price_by_ticket
