@@ -12,6 +12,7 @@
   %th.min-phone-l.min-tablet Evento
   %th.min-phone-l.min-tablet Cantidad de Tickets
   %th.min-phone-l.min-tablet Precio por Ticket
+  %th.min-phone-l.min-tablet Monto Total
   %th.all Acciones
 = content_for :tbody do
   - @orden_requests.each do |orden_request|
@@ -23,6 +24,7 @@
       %td= orden_request.event # TODO: Here we should fix it
       %td= orden_request.ticket_quantity
       %td= orden_request.price_by_ticket
+      %td= orden_request.total_amount
       %td
         .btn-group.pull-right
           %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}

@@ -38,12 +38,18 @@
         .form-group
           %label.col-md-2.control-label
             Cantidad de Tickets :
-          .col-md-4
+          .col-md-2
             = @orden_request.ticket_quantity
           %label.col-md-2.control-label
             Precio por Ticket :
-          .col-md-4
+          .col-md-2
             = @orden_request.price_by_ticket
+            Bs.
+          %label.col-md-2.control-label
+            Monto Total :
+          .col-md-2
+            = @orden_request.total_amount
+            Bs.
         %br
         .row
           - if @orden_request.orden_request_details.count > 0
