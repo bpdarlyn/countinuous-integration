@@ -18,4 +18,9 @@ class WarehouseController < ApplicationController
   def canceled
     @orden_requests = OrdenRequest.canceled
   end
+
+  def view_orden_request
+    @orden_request = OrdenRequest.find(params[:id])
+  end
+
 end

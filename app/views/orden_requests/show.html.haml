@@ -6,69 +6,7 @@
   .form-body
     .form-actions
       .row
-        .form-group
-          %label.col-md-2.control-label
-            Código de Pedido :
-          .col-md-4
-            = @orden_request.request_number
-          %label.col-md-2.control-label
-            Fecha de Pedido :
-          .col-md-4
-            = @orden_request.date_orden
-      %br
-      .row
-        .form-group
-          %label.col-md-2.control-label
-            Fecha del Evento :
-          .col-md-4
-            = @orden_request.event_date
-          %label.col-md-2.control-label
-            Nombre del Evento :
-          .col-md-4
-            = @orden_request.event
-      %br
-      .row
-        .form-group
-          %label.col-md-2.control-label
-            Personal Encargado :
-          .col-md-4
-            = @orden_request.personal_in_charge.try(:full_name)
-      %br
-      .row
-        .form-group
-          %label.col-md-2.control-label
-            Cantidad de Tickets :
-          .col-md-2
-            = @orden_request.ticket_quantity
-          %label.col-md-2.control-label
-            Precio por Ticket :
-          .col-md-2
-            = @orden_request.price_by_ticket
-            Bs.
-          %label.col-md-2.control-label
-            Monto Total :
-          .col-md-2
-            = @orden_request.total_amount
-            Bs.
-        %br
-        .row
-          - if @orden_request.orden_request_details.count > 0
-            .form-group
-              .col-md-6
-                %h4 Detalle:
-                %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
-                  %thead
-                    %tr
-                      %th Producto
-                      %th Cantidad
-                  %tbody
-                    - @orden_request.orden_request_details.each do |orden_request_detail|
-                      %tr
-                        - product = orden_request_detail.product
-                        %td
-                          = product.type_of_product.try(:name)
-                          \- #{product.name}
-                        %td= orden_request_detail.quantity
+        = render partial: "show_detail"
         %br/
         %br/
         .form-group

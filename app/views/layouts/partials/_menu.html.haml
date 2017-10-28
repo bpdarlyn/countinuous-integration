@@ -46,15 +46,15 @@
           = link_to orden_requests_path do
             %i.icon-bar-chart
             Orden de Pedido
-        %li{:class => "#{active_menu(params[:controller], 'pending')}"}
+        %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'pending')} #{active_sub_menu(params[:controller],params[:action], 'warehouse', 'view_orden_request')}"}
           = link_to pending_path do
             %i.icon-bar-chart
             Pedidos Pendientes
-        %li{:class => "#{active_menu(params[:controller], 'processed')}"}
+        %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'processed')}"}
           = link_to processed_path do
             %i.icon-bar-chart
             Pedidos Procesados
-        %li{:class => "#{active_menu(params[:controller], 'canceled')}"}
+        %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'canceled')}"}
           = link_to canceled_path do
             %i.icon-bar-chart
             Pedidos Cancelados

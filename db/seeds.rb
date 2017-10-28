@@ -25,6 +25,7 @@ if TypeOfEvent.count == 0
 end
 
 if PersonalInCharge.count == 0
-	PersonalInCharge.create(name: "Erick", last_name: "P.", ocupation: "Impresor")
+	PersonalInCharge.create(name: "Erick", last_name: "Sánchez", ocupation: "Impresor")
+	PersonalInCharge.create(name: "Miguel", last_name: "Mercado", ocupation: "Impresor")
 	p "Personal creado satisfactoriamente"
 end

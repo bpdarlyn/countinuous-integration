@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'processed', to: "warehouse#processed"
   get 'canceled', to: "warehouse#canceled"
   get 'get_event_autocomplete', to: 'events#get_event_autocomplete'
-
+  get 'warehouse/:id/view_orden', :to => 'warehouse#view_orden_request'
+  
   resources :personal_in_charges
   resources :orden_request_details
   resources :historical_boxes
