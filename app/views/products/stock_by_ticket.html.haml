@@ -1,0 +1,24 @@
+.breadcrumbs
+  %h1 Almacén
+  %ol.breadcrumb
+    %li
+      = link_to "Home", root_path
+    %li.active
+      Almacén
+.row
+  .col-md-12
+    .row
+      %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+        %thead
+          %tr
+            %th Ticket
+            %th Cantidad Total
+            %th Disponibles
+            %th Utilizados
+        %tbody
+          - @product_tickets.each do |product|
+            %tr
+              %td= product.name
+              %td= product.total_quantity_ticket_boxes
+              %td= product.total_available_tickets
+              %td= product.total_not_available_tickets

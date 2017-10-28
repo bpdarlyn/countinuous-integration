@@ -15,7 +15,7 @@
         Productos
       %ul.dropdown-menu.dropdown-menu-fw
         %li.dropdown.more-dropdown-sub
-        %li{:class => "#{active_menu(params[:controller], 'products')}"}
+        %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'products', 'index')}"}
           = link_to products_path do
             %i.icon-bar-chart
             Lista de Productos
@@ -27,15 +27,15 @@
           = link_to inflows_path do
             %i.icon-bar-chart
             Ingreso de Productos (Tickets)
-        %li{:class => "dropdown more-dropdown-sub #{active_menu(params[:controller], 'warehouse')}"}
+        %li{:class => "dropdown more-dropdown-sub #{active_sub_menu(params[:controller],params[:action], 'products', 'stock_by_boxes')} #{active_sub_menu(params[:controller],params[:action], 'products', 'stock_by_ticket')}"}
           %a{:href => "javascript:;"}
             %i.icon-bar-chart
             Almacen
           %ul.dropdown-menu
-            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'index')}"}
-              = link_to "Vista de Productos por Cajas", warehouse_index_path
-            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'warehouse', 'index_all_tickets')}"}
-              = link_to "Vista de Productos en General", warehouse_index_all_tickets_path
+            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'products', 'stock_by_boxes')}"}
+              = link_to "Vista de Productos por Cajas", products_stock_by_boxes_path
+            %li{:class => "#{active_sub_menu(params[:controller],params[:action], 'products', 'stock_by_ticket')}"}
+              = link_to "Vista de Productos en General", products_stock_by_ticket_path
     %li{:class => "dropdown dropdown-fw dropdown-fw-disabled #{parent_menu_active(params[:controller], 'request')}"}
       %a.text-uppercase{:href => "javascript:;"}
         %i.icon-puzzle

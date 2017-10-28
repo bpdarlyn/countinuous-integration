@@ -5,14 +5,14 @@
     Nuevo Ingreso de Productos
     %i.fa.fa-plus
 = content_for :thead do
-  %th Fecha de Ingreso
-  %th Acciones
+  %th.all Fecha de Ingreso
+  %th.all Acciones
 = content_for :tbody do
   - @inflows.each do |inflow|
     %tr
       %td= inflow.inflow_date
       %td
-        .btn-group
+        .btn-group.pull-right
           %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
             Acciones
             %i.fa.fa-angle-down

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root "home#index"
   get 'home/index'
-  get 'warehouse/index'
-  get 'warehouse/index_all_tickets'
+  get 'products/stock_by_boxes'
+  get 'products/stock_by_ticket'
   get 'pending', to: "warehouse#pending"
   get 'processed', to: "warehouse#processed"
   get 'canceled', to: "warehouse#canceled"

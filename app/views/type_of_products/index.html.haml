@@ -5,14 +5,14 @@
     Nuevo Tipo de Producto
     %i.fa.fa-plus
 = content_for :thead do
-  %th Nombre
-  %th Acciones
+  %th.all Nombre
+  %th.all Acciones
 = content_for :tbody do
   - @type_of_products.each do |type_of_product|
     %tr
       %td= type_of_product.name
       %td
-        .btn-group
+        .btn-group.pull-right
           %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
             Acciones
             %i.fa.fa-angle-down

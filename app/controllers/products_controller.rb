@@ -61,6 +61,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def stock_by_boxes
+    @product_tickets = Product.where(type_of_product: TypeOfProduct.find_by_name("ticket"))
+  end
+
+  def stock_by_ticket
+    @product_tickets = Product.where(type_of_product: TypeOfProduct.find_by_name("ticket"))
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

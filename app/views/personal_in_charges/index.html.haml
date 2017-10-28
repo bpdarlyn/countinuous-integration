@@ -5,10 +5,10 @@
     Nuevo Personal Encargado
     %i.fa.fa-plus
 = content_for :thead do
-  %th Nombre
-  %th Apellido
+  %th.all Nombre
+  %th.all Apellido
   %th Ocupación
-  %th Acciones
+  %th.all Acciones
 = content_for :tbody do
   - @personal_in_charges.each do |personal_in_charge|
     %tr
@@ -16,7 +16,7 @@
       %td= personal_in_charge.last_name
       %td= personal_in_charge.ocupation
       %td
-        .btn-group
+        .btn-group.pull-right
           %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
             Acciones
             %i.fa.fa-angle-down

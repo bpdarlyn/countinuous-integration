@@ -5,16 +5,16 @@
     Nuevo Producto
     %i.fa.fa-plus
 = content_for :thead do
-  %th Tipo de Producto
-  %th Nombre
-  %th Acciones
+  %th.all Nombre
+  %th.min-phone-l Tipo de Producto
+  %th.all Acciones
 = content_for :tbody do
   - @products.each do |product|
     %tr
-      %td= product.type_of_product.try(:name)
       %td= product.name
+      %td= product.type_of_product.try(:name)
       %td
-        .btn-group
+        .btn-group.pull-right
           %button.btn.btn-xs.green.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
             Acciones
             %i.fa.fa-angle-down
