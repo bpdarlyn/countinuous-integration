@@ -18,7 +18,16 @@ class HistoricalBox < ApplicationRecord
       historical_box.status = true
       historical_box.available = ticket_box.quantity
       historical_box.not_available = 0
-      historical_box.save 
-    end     
+      historical_box.save
+    end
+  end
+
+  def put_in_false_others
+    ticket_box_id = self.ticket_box_id
+    historicals = HistoricalBox.where(ticket_box_id: ticket_box_id)
+    historicals.each do |historical|
+      historical.status = false
+      historical.save
+    end
   end
 end

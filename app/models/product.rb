@@ -48,4 +48,21 @@ class Product < ApplicationRecord
     end
   end
 
+  # this method returns IDs from ticket boxes, not the number
+  def get_boxes_used(quantity)
+    boxes = []
+    ticket_boxes.each do |ticket_box|
+      historical_active = ticket_box.historical_box_active
+      unless historical_active.available == 0
+        if quantity > historical_active.available
+          quantity -= historical_active.available
+          boxes.push(ticket_box.id)
+        elsif quantity <= historical_active.available
+          boxes.push(ticket_box.id)
+          return boxes
+        end
+      end
+    end
+  end
+
 end
