@@ -36,5 +36,7 @@
                 %td= numbers_secuency[1]
 
       .modal-footer
-        %button.btn.dark.btn-outline{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.green{:type => "button"} Save changes
+        = form_for @orden_request_out, :url => url_for(:controller => 'warehouse', :action => 'save_approval'), method: :post do |f|
+          = f.text_field :id, readonly: true, class: 'hidden  '
+          %button.btn.dark.btn-outline{"data-dismiss" => "modal", :type => "button"} Cancelar
+          = f.submit 'Guardar', class: 'btn green'

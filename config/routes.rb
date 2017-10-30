@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'warehouse/:id/view_orden', :to => 'warehouse#view_orden_request'
 
   get 'approval_request', :to => 'warehouse#approval_request_modal'
-  get 'refuse_request', :to => 'warehouse#refuse_request_modal' 
+  post 'save_approval', :to => 'warehouse#save_approval'
+  get 'refuse_request', :to => 'warehouse#refuse_request_modal'
 
   resources :personal_in_charges
   resources :orden_request_details
