@@ -1,0 +1,40 @@
+#basic.modal.fade{"aria-hidden" => "true", :role => "basic", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}
+        %h4.modal-title= title
+      .modal-body
+        %table#warehouse.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+          %thead
+            %tr
+              %th Producto
+              %th Disponibles
+              %th Cantidad Total
+          %tbody
+            - @product_tickets.each do |product|
+              %tr
+                %td= product.name_with_type
+                %td= product.total_available_tickets
+                %td= product.total_quantity_ticket_boxes
+        %hr
+        %h4 La siguiente tabla, muestra el número de serie de los tickets a retirar
+        %table#request_out.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+          %thead
+            %tr
+              %th Producto
+              %th Cantidad Total
+              %th Desde
+              %th Hasta
+          %tbody
+            - @orden_request_out.orden_request_details.each do |orden_detail|
+              %tr
+                %td= orden_detail.product.name_with_type
+                %td= orden_detail.quantity
+                - numbers_secuency = orden_detail.product.request_quantity_numbers(orden_detail.quantity)
+                %td= numbers_secuency[0]
+                %td= numbers_secuency[1]
+
+      .modal-footer
+        %button.btn.dark.btn-outline{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.green{:type => "button"} Save changes

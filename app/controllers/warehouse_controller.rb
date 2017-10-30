@@ -23,4 +23,18 @@ class WarehouseController < ApplicationController
     @orden_request = OrdenRequest.find(params[:id])
   end
 
+  def approval_request_modal
+    if params[:orden_request_id].present?
+      @orden_request_out = OrdenRequest.find(params[:orden_request_id].to_i)
+
+      
+
+      @product_tickets = @orden_request_out.products
+    end
+  end
+
+  def refuse_request_modal
+
+  end
+
 end

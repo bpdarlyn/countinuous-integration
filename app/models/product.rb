@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   def total_quantity_ticket_boxes
   	if ticket_boxes.count > 0
-  		ticket_boxes.sum(:quantity) 
+  		ticket_boxes.sum(:quantity)
   	else
   		0
   	end
@@ -34,4 +34,18 @@ class Product < ApplicationRecord
   		0
   	end
   end
+
+  def name_with_type
+    "#{self.type_of_product.name} - #{self.name}"
+  end
+
+  def request_quantity_numbers(quantity)
+    ticket_boxes.each do |ticket_box|
+      unless ticket_box.historical_box_active.available == 0
+        end_number = ticket_box.start_number_available + quantity - 1
+        return [ticket_box.start_number_available,end_number]
+      end
+    end
+  end
+
 end
