@@ -1,0 +1,16 @@
+#basic.modal.fade{"aria-hidden" => "true", :role => "basic", :tabindex => "-1"}
+  .modal-dialog
+    = form_for @orden_request_out, :url => url_for(:controller => 'warehouse', :action => 'save_refuse'), method: :post do |f|
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}
+          %h4.modal-title= title
+        .modal-body
+          .row
+            = f.text_field :id, readonly: true, class: 'hidden'
+            = f.label :comment,'Motivo', class: 'control-label col-md-2'
+            .col-md-10
+              = f.text_area :comment, class: 'form-control', required: true
+        .modal-footer
+          %button.btn.dark.btn-outline{"data-dismiss" => "modal", :type => "button"} Cancelar
+          = f.submit 'Guardar', class: 'btn green'

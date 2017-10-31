@@ -9,47 +9,68 @@
     = @orden_request.date_orden
 %br
 .row
-.form-group
-  %label.col-md-2.control-label
-    Fecha del Evento :
-  .col-md-4
-    = @orden_request.event_date
-  %label.col-md-2.control-label
-    Nombre del Evento :
-  .col-md-4
-    = @orden_request.event
+  .form-group
+    %label.col-md-2.control-label
+      Fecha del Evento :
+    .col-md-4
+      = @orden_request.event_date
+    %label.col-md-2.control-label
+      Nombre del Evento :
+    .col-md-4
+      = @orden_request.event
 %br
 .row
-.form-group
-  %label.col-md-2.control-label
-    Personal Encargado :
-  .col-md-4
-    = @orden_request.personal_in_charge.try(:full_name)
+  .form-group
+    %label.col-md-2.control-label
+      Personal Encargado :
+    .col-md-4
+      = @orden_request.personal_in_charge.try(:full_name)
+  .form-group
+    %label.col-md-2.control-label
+      Estado :
+    .col-md-4
+      - if @orden_request.status == "canceled"
+        %span.label.label-danger Cancelado
+      - elsif @orden_request.status == "pending"
+        %span.label.label-warning Pendiente
+      - else
+        %span.label.label-success Procesado
+
 %br
 .row
-.form-group
-  %label.col-md-2.control-label
-    Cantidad de Tickets :
-  .col-md-2
-    = @orden_request.ticket_quantity
-  %label.col-md-2.control-label
-    Precio por Ticket :
-  .col-md-2
-    = @orden_request.price_by_ticket
-    Bs.
-  %label.col-md-2.control-label
-    Monto Total :
-  .col-md-2
-    = @orden_request.total_amount
-    Bs.
+  .form-group
+    %label.col-md-2.control-label
+      Cantidad de Tickets :
+    .col-md-2
+      = @orden_request.ticket_quantity
+    %label.col-md-2.control-label
+      Precio por Ticket :
+    .col-md-2
+      = @orden_request.price_by_ticket
+      Bs.
+    %label.col-md-2.control-label
+      Monto Total :
+    .col-md-2
+      = @orden_request.total_amount
+      Bs.
 %br
 %br
 
 .row
   - if @orden_request.orden_request_details.count > 0
-    .form-group
-      .col-md-offset-3.col-md-6
-        %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+    - if @orden_request.status == "canceled"
+      .form-group
+        .col-md-6
+          = render :partial => "orden_requests/table_details"
+        %label.col-md-2.control-label Comentario de rechazo:
+        .col-md-4
+          = @orden_request.comment
+
+    - else
+      .form-group
+        .col-md-offset-3.col-md-6
+          = render :partial => "orden_requests/table_details"
+        -# %table#table.table.table-striped.table-bordered.table-hover.table-checkable.order-column
           %thead
             %tr
               %th.text-center Producto

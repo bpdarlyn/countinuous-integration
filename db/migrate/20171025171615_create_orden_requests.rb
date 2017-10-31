@@ -11,6 +11,8 @@ class CreateOrdenRequests < ActiveRecord::Migration[5.1]
       t.integer :event_id
       t.integer :ticket_quantity
       t.integer :status, default: 0
+      t.text :observation
+      t.text :comment
       t.timestamps
     end
   end

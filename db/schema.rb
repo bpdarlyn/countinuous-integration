@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20171027182240) do
     t.integer "event_id"
     t.integer "ticket_quantity"
     t.integer "status", default: 0
+    t.text "observation"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

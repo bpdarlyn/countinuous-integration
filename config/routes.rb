@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'approval_request', :to => 'warehouse#approval_request_modal'
   post 'save_approval', :to => 'warehouse#save_approval'
   get 'refuse_request', :to => 'warehouse#refuse_request_modal'
+  post 'save_refuse', :to => 'warehouse#save_refuse'
 
   resources :personal_in_charges
   resources :orden_request_details

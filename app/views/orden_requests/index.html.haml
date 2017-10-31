@@ -7,6 +7,7 @@
 = content_for :thead do
   %th.all Código de Pedido
   %th.min-phone-l Fecha de Orden
+  %th.min-phone-l Estado
   %th.min-phone-l Personal Encargado
   %th.min-phone-l Fecha del Evento
   %th.min-phone-l.min-tablet Evento
@@ -18,6 +19,13 @@
   - @orden_requests.each do |orden_request|
     %tr
       %td= orden_request.request_number
+      %td
+        - if orden_request.status == "canceled"
+          %span.label.label-danger Cancelado
+        - elsif orden_request.status == "pending"
+          %span.label.label-warning Pendiente
+        - else
+          %span.label.label-success Procesado
       %td= l(orden_request.date_orden, format: '%d de %B de %Y')
       %td= orden_request.personal_in_charge.try(:name)
       %td= l(orden_request.event_date, format: '%d de %B de %Y')

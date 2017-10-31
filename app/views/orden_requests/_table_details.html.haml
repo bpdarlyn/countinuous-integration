@@ -1,0 +1,14 @@
+%table#order_detail.table.table-striped.table-bordered.table-hover.table-checkable.order-column
+  %thead
+    %tr
+      %th.text-center Producto
+      %th.text-center Cantidad
+  %tbody
+    - @orden_request.orden_request_details.each do |orden_request_detail|
+      %tr
+        - product = orden_request_detail.product
+        %td.text-center
+          = product.type_of_product.try(:name)
+          \- #{product.name}
+        %td.text-center
+          = orden_request_detail.quantity

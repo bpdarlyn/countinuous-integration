@@ -35,7 +35,6 @@ class WarehouseController < ApplicationController
     if params[:orden_request][:id].present?
 
       # all this has to be in a model
-
       orden_request = OrdenRequest.find(params[:orden_request][:id].to_i)
       # create outflow
       outflow = Outflow.new
@@ -91,10 +90,7 @@ class WarehouseController < ApplicationController
         	historical_box.not_available = new_not_available
         	historical_box.outflow_detail_id = outflow_detail.id
         	historical_box.save
-
-
         end
-
       end
       orden_request.update(status: 1)
 
@@ -103,14 +99,23 @@ class WarehouseController < ApplicationController
       # show error message
       redirect_to pending_path
     end
-
     # redirect to show, with state
-
 
   end
 
   def refuse_request_modal
+    if params[:orden_request_id].present?
+      @orden_request_out = OrdenRequest.find(params[:orden_request_id].to_i)
+    end
+  end
 
+  def save_refuse
+    if params[:orden_request][:id].present?
+      # all this has to be in a model
+      orden_request = OrdenRequest.find(params[:orden_request][:id].to_i)
+      orden_request.update(comment: params[:orden_request][:comment], status: 2)
+    end
+    redirect_to pending_path
   end
 
   def view_proccesed
