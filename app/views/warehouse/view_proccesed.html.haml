@@ -1,0 +1,20 @@
+= content_for :page_title do
+  Detalle de Pedido Procesado
+= content_for :index_page_controller do
+  = link_to "Pedidos Pendientes", pending_path
+= content_for :form_content do
+  .form-body
+    .form-actions
+      .row
+        = render partial: "orden_requests/show_detail"
+        %br/
+        .row
+          .text-center
+            %h4 Tickets Entregados
+        = render partial: "outflows/show_detail"
+        -# .form-group
+          .col-md-12
+            .text-center
+              = link_to 'Aprobar y Entregar', approval_request_path(orden_request_id: @orden_request.id), remote: true, class: "btn green"
+              = link_to 'Rechazar', orden_requests_path, class: "btn btn-danger"
+= render template: "layouts/abstracts/show"

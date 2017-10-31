@@ -30,6 +30,7 @@ class WarehouseController < ApplicationController
     end
   end
 
+  # this method has to be smaller
   def save_approval
     if params[:orden_request][:id].present?
 
@@ -110,6 +111,11 @@ class WarehouseController < ApplicationController
 
   def refuse_request_modal
 
+  end
+
+  def view_proccesed
+    @orden_request = OrdenRequest.find(params[:id])
+    @outflow = @orden_request.outflow
   end
 
 end

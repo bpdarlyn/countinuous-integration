@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'canceled', to: "warehouse#canceled"
   get 'get_event_autocomplete', to: 'events#get_event_autocomplete'
   get 'warehouse/:id/view_orden', :to => 'warehouse#view_orden_request'
+  get 'warehouse/:id/view_proccesed', :to => 'warehouse#view_proccesed'
 
   get 'approval_request', :to => 'warehouse#approval_request_modal'
   post 'save_approval', :to => 'warehouse#save_approval'
