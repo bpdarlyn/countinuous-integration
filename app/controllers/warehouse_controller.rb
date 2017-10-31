@@ -116,6 +116,16 @@ class WarehouseController < ApplicationController
   def view_proccesed
     @orden_request = OrdenRequest.find(params[:id])
     @outflow = @orden_request.outflow
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Pedido Procesado",
+        layout: 'layouts/pdf.html.haml',
+        page_size: 'Letter',
+        show_as_html: params[:debug].present?
+      end
+    end
   end
 
 end

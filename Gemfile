@@ -56,3 +56,5 @@ gem "cocoon"
 gem "haml-rails", "~> 1.0"
 gem "rubocop"
 gem 'protokoll' # this gem if about generate sequence number
+gem 'wicked_pdf', '~> 1.1'
+gem 'wkhtmltopdf-binary'

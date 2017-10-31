@@ -25,6 +25,8 @@
       %td= orden_request.ticket_quantity
       %td= orden_request.price_by_ticket
       %td
-        = link_to "/warehouse/#{orden_request.id}/view_proccesed" do
+        = link_to warehouse_view_proccesed_path(id: orden_request.id) do
           Mostrar Pedido Procesado
+        = link_to warehouse_view_proccesed_path(id: orden_request.id, :format => :pdf) do
+          Ver Pdf
 = render template: "layouts/abstracts/index"
