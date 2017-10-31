@@ -58,3 +58,6 @@ gem "rubocop"
 gem 'protokoll' # this gem if about generate sequence number
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary'
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
