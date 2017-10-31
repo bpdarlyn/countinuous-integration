@@ -67,17 +67,19 @@ class WarehouseController < ApplicationController
           box_quantity = ticket_box.quantity
 
 
-          result = order_request_product_quantity - availables_tickets
-          order_request_product_quantity = order_request_product_quantity - availables_tickets
+          result = availables_tickets - order_request_product_quantity
+
 
           if result > 0
             new_available = result
-            new_not_available = new_available + not_available_tickets
+            new_not_available = order_request_product_quantity + not_available_tickets
 
           else
             new_available = 0
             new_not_available = box_quantity
           end
+
+          order_request_product_quantity = order_request_product_quantity - availables_tickets
 
           historical_box_active.update(status: false)
 
