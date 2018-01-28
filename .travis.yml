@@ -9,3 +9,8 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
+script:
+  - bundle exec rspec spec/models
+branches:
+  only:
+  - staging
