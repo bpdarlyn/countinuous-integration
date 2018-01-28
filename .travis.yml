@@ -11,7 +11,6 @@ before_install:
 - cp config/secrets.yml.travis config/secrets.yml
 script:
 - bundle exec rspec spec/models
-- bundle exec cap staging deploy
 branches:
   only:
   - staging
@@ -21,4 +20,4 @@ env:
 
 after_success:
   - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/id_rsa"
-  - "bundle exec cap deploy"
+  - "bundle exec cap staging deploy"
