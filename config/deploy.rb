@@ -5,3 +5,4 @@ set :application,     'inventory-ci'
 set :user,            'deploy'
 set :rvm_type, :system                     # Defaults to: :auto
 set :rvm_ruby_version, '2.3.1@inventory-ci'
+set :ssh_options, keys: ["config/id_rsa"] if File.exist?("config/id_rsa")
