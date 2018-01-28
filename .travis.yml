@@ -5,3 +5,4 @@ services:
   - mysql
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_ci_staging;'
+  - cp config/database.yml.travis config/database.yml
