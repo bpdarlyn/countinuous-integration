@@ -1,17 +1,24 @@
 language: ruby
 rvm:
-  - 2.3.1
+- 2.3.1
 services:
-  - mysql
+- mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
-  - cp config/database.yml.travis config/database.yml
-  - cp config/secrets.yml.travis config/secrets.yml
+- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
+- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
+- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
+- cp config/database.yml.travis config/database.yml
+- cp config/secrets.yml.travis config/secrets.yml
 script:
-  - bundle exec rspec spec/models
-  - bundle exec cap staging deploy
+- bundle exec rspec spec/models
+- bundle exec cap staging deploy
 branches:
   only:
   - staging
+env:
+  global:
+    secure: XTg1ry15jaEKijlbxg98Uas+GxnuHRvMam5hqeCexwOLgrtuZlJRCXKjtxTNXQ2n/3qihV4f79TJoEDcpDJ5UIFayKghhJ3ihlxz+OGSZEooEc4xZr1TfnBn6tgG1ooIpfepy6yI374dilDFSjx7VvKHw1zTzoFRVTbWHd0Ma1vpY6KUMfV2U7jQfuvr9Fa63xHPh6NXypZjpmf3WAlVi/auBKxCiOAJtzxRLrlr7ZM0/h8Fyx9sg1MOCg7NHEgTg1VLcbDKDLZlusmI18j1Dm7ErRaDCBa33AT+TEs2AmluhhyrKflmqy+cP8Dg14/0oRdrt8eDel/1eQuKLmobLCiW//GHfzZREiTZuaA3rT39wYQB6TZ+JGV0oYg1ai5g5P9Z4Kp5TXOr1Dzdd4G6ya2JyGvJvzm3TyjB4qFvPdSCrCuMd4M64WIiJtptA4Wc1ZJPnAx+ZVSx1tLlL2Z/3vWTAhwFcS2xcna1SELH7lAhfUW2RZ9U32TBoSoQ4K3Jm1J0GVCNNl1GgQZilnLAcVk+U0vxNMvfHNvIAHICePvOvy0YA6MNFkJ4FtZN/m4n6sHOAXrwCq1Is4bHkgUHFSN0R8afoLos4FImiAu2YtF2a01K5j7tevJgwzyGIJ0QLuu2UI6Qa6QA0V9M0Fuf1uEZbefohk3X0H7QAb4fmoI=
+
+after_success:
+  - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/id_rsa"
+  - "bundle exec cap deploy"
