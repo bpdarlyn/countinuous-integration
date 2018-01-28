@@ -1,22 +1,24 @@
+notifications:
+  slack: tesis-bv:58cPU53b6C89b8qsV5ocZfQO
 language: ruby
 rvm:
-- 2.3.1
+  - 2.3.1
 services:
-- mysql
+  - mysql
 before_install:
-- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
-- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
-- mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
-- cp config/database.yml.travis config/database.yml
-- cp config/secrets.yml.travis config/secrets.yml
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
+  - cp config/database.yml.travis config/database.yml
+  - cp config/secrets.yml.travis config/secrets.yml
 script:
-- bundle exec rspec spec/models
+  - bundle exec rspec spec/models
 branches:
   only:
-  - staging
+    - staging
 env:
   global:
-  - secure: dvjtQA6RqvMOe4rNyJj5LJnAUhIlo3CYyxpEfAj0FaWvB3a4rK+e7IHzHFPI+QUXDE100xP/1+ey4N6sFb60H5ih1GUAN+YaoFbFVzSlrP9w7pNvGdj5Edn5wYVc0pyI3tFb3YaxHfki3grYOH5R7KXMKmuIyTc7tc+lWPuDGXznT+4ds/nBuweB5NGZxT+iO0oRkXdAX8Yatejz8IAXSglA1kNfUgIsMYt4DYr8AcAXEfnf5BCeHosPaVqGSZBDVT0F5gdExOrEDyzvM+TerXYLdOEAdqdffIDX3FLhqqpjlNsT8HK0nwuPddBHfXycWPtNeoSCwvku6sJF70OIekpeWda0kD5e6sWOcSjBcRlu+7tApS63WKj1Kgb72tzo99xZX8giyeyk7M/UE51CaJh3wTyMWR6HbkHXAwlrQckOj/4nYKB0ItdcDPgJ9sRYLMdmGYtS6XZe7h7HQ7EpjEUJW8O6axZWMNb0L3nz+gJ1IASInO78MhX9aDz4NCosieSCwhmqdKK4zmYSEkdpz85b+SvPfh0EtsxAa5fDX/4CjpENKI+OKvZR5V/f4+iGibcLZcbXKtEpRtUAPKPsP9JZ+zekPBWsi3osHy+xZ37D+tbyPzi+wn7btw1vidCgZMwnpu6T+wGZpZkyj9KgNaJbhtMBBCgSrPqHKTxhAPQ=
+    - secure: dvjtQA6RqvMOe4rNyJj5LJnAUhIlo3CYyxpEfAj0FaWvB3a4rK+e7IHzHFPI+QUXDE100xP/1+ey4N6sFb60H5ih1GUAN+YaoFbFVzSlrP9w7pNvGdj5Edn5wYVc0pyI3tFb3YaxHfki3grYOH5R7KXMKmuIyTc7tc+lWPuDGXznT+4ds/nBuweB5NGZxT+iO0oRkXdAX8Yatejz8IAXSglA1kNfUgIsMYt4DYr8AcAXEfnf5BCeHosPaVqGSZBDVT0F5gdExOrEDyzvM+TerXYLdOEAdqdffIDX3FLhqqpjlNsT8HK0nwuPddBHfXycWPtNeoSCwvku6sJF70OIekpeWda0kD5e6sWOcSjBcRlu+7tApS63WKj1Kgb72tzo99xZX8giyeyk7M/UE51CaJh3wTyMWR6HbkHXAwlrQckOj/4nYKB0ItdcDPgJ9sRYLMdmGYtS6XZe7h7HQ7EpjEUJW8O6axZWMNb0L3nz+gJ1IASInO78MhX9aDz4NCosieSCwhmqdKK4zmYSEkdpz85b+SvPfh0EtsxAa5fDX/4CjpENKI+OKvZR5V/f4+iGibcLZcbXKtEpRtUAPKPsP9JZ+zekPBWsi3osHy+xZ37D+tbyPzi+wn7btw1vidCgZMwnpu6T+wGZpZkyj9KgNaJbhtMBBCgSrPqHKTxhAPQ=
 after_success:
-- openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/id_rsa
-- bundle exec cap staging deploy
+  - openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/id_rsa
+  - bundle exec cap staging deploy
