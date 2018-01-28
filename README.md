@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# countinuous-integration
+example using countinuous integration rails + travis + capistrano
