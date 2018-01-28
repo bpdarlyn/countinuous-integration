@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.3.1
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
+  - cp config/database.yml.travis config/database.yml
+  - cp config/secrets.yml.travis config/secrets.yml
+script:
+  - bundle exec rspec spec/models
+branches:
+  only:
+  - staging
