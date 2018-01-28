@@ -599,7 +599,6 @@ a.dt-button {
     background-image: -ms-linear-gradient(top, #fff 0%, #e9e9e9 100%);
     background-image: -o-linear-gradient(top, #fff 0%, #e9e9e9 100%);
     background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='white', EndColorStr='#e9e9e9');
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -620,7 +619,6 @@ a.dt-button.disabled {
     background-image: -ms-linear-gradient(top, #fff 0%, #f9f9f9 100%);
     background-image: -o-linear-gradient(top, #fff 0%, #f9f9f9 100%);
     background-image: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#f9f9f9')
 }
 
 button.dt-button:active:not(.disabled),
@@ -635,8 +633,7 @@ a.dt-button.active:not(.disabled) {
     background-image: -ms-linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
     background-image: -o-linear-gradient(top, #f3f3f3 0%, #e2e2e2 100%);
     background-image: linear-gradient(to bottom, #f3f3f3 0%, #e2e2e2 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f3f3f3', EndColorStr='#e2e2e2');
-    box-shadow: inset 1px 1px 3px #999999
+    box-shadow: inset 1px 1px 3px #999999 ;
 }
 
 button.dt-button:active:not(.disabled):hover:not(.disabled),
@@ -652,7 +649,6 @@ a.dt-button.active:not(.disabled):hover:not(.disabled) {
     background-image: -ms-linear-gradient(top, #eaeaea 0%, #ccc 100%);
     background-image: -o-linear-gradient(top, #eaeaea 0%, #ccc 100%);
     background-image: linear-gradient(to bottom, #eaeaea 0%, #ccc 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#eaeaea', EndColorStr='#cccccc')
 }
 
 button.dt-button:hover,
@@ -671,7 +667,6 @@ a.dt-button:hover:not(.disabled) {
     background-image: -ms-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
     background-image: -o-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
     background-image: linear-gradient(to bottom, #f9f9f9 0%, #e0e0e0 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f9f9f9', EndColorStr='#e0e0e0')
 }
 
 button.dt-button:focus:not(.disabled),
@@ -686,7 +681,6 @@ a.dt-button:focus:not(.disabled) {
     background-image: -ms-linear-gradient(top, #bddef4 0%, #79ace9 100%);
     background-image: -o-linear-gradient(top, #bddef4 0%, #79ace9 100%);
     background-image: linear-gradient(to bottom, #bddef4 0%, #79ace9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#bddef4', EndColorStr='#79ace9')
 }
 
 .dt-button embed {
@@ -748,8 +742,7 @@ div.dt-button-collection a.dt-button.active:not(.disabled) {
     background-image: -ms-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
     background-image: -o-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
     background-image: linear-gradient(to bottom, #f0f0f0 0%, #dadada 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f0f0f0', EndColorStr='#dadada');
-    box-shadow: inset 1px 1px 3px #666
+    box-shadow: inset 1px 1px 3px #666 ;
 }
 
 div.dt-button-collection.fixed {

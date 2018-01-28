@@ -12,6 +12,7 @@
  *
  *= require metronic/font-awesome.scss
  *= require metronic/simple-line-icons.scss
+
  *= require jquery-ui
  *= require metronic/bootstrap.scss
  *= require metronic/bootstrap-switch.css
@@ -19,7 +20,7 @@
 
  *= require metronic/jquery.notific8.min.css
 
- *= require metronic/datatables.scss
+ 
  *= require metronic/datatables.bootstrap.css
 
  *= require metronic/bootstrap-datepicker3.css
@@ -27,6 +28,7 @@
  *= require metronic/plugins.scss
  *= require metronic/layout.css
  *= require metronic/custom.css
+
  *= require_tree .
  *= require_self
  */
