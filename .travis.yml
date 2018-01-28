@@ -4,6 +4,8 @@ rvm:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_ci_staging;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_development;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS inventory_production;'
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
