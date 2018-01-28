@@ -11,6 +11,7 @@ before_install:
   - cp config/secrets.yml.travis config/secrets.yml
 script:
   - bundle exec rspec spec/models
+  - bundle exec cap staging deploy
 branches:
   only:
   - staging
